@@ -7,6 +7,12 @@
       "path": "node_modules/cz-customizable"
     }
   },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "scripts": {
     "start": "npm run serve",
     "serve": "vue-cli-service serve",
