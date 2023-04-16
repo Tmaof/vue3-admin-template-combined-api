@@ -10,6 +10,8 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 // ElementPlus 的图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+// 使用mock模拟数据
+import '@/mock'
 
 // scss
 import '@/assets/scss/reset.scss'
