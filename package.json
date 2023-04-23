@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "npm run serve",
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "prepare": "husky install"
@@ -27,6 +27,7 @@
     "element-plus": "^2.3.3",
     "md5": "^2.3.0",
     "mockjs": "^1.1.0",
+    "screenfull": "^6.0.2",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"

@@ -1,0 +1,30 @@
+// 覆盖默认样式
+@import '@/assets/scss/reset.scss';
+// 一些css常量,需要在明暗主题之前引入
+@import './variables-dark.scss';
+@import './variables-light.scss';
+@import './variables.scss';
+// 明暗主题
+@import './theme-dark.scss';
+@import './theme-light.scss';
+@import './theme-filter-invert-dark.scss';
+@import './theme-filter-invert-light.scss';
+
+// 边框盒模型
+* {
+  box-sizing: border-box;
+}
+
+// 滚动条
+::-webkit-scrollbar-track-piece {
+  background: #d3dce6;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0000003d;
+  border-radius: 20px;
+}

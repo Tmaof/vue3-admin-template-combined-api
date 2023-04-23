@@ -1,0 +1,10 @@
+.theme-filter-invert-light {
+  background-color: #fff;
+
+  // TODO: 为一些固定定位并且默认背景为透明的元素设置白色背景
+  // 导航栏
+  .navbar-container {
+    background-color: #fff;
+  }
+
+}

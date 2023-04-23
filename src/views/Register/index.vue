@@ -1,17 +1,22 @@
 <template>
-  <div class="container">
+  <div
+    class="register-container"
+    :class="{
+      'register-container-mobile': $store.getters.screenInfo.isMobile
+    }"
+  >
     <div class="main">
       <p class="title">用户注册</p>
       <el-form
-        ref="loginFromRef"
-        class="login-form"
-        :model="loginForm"
+        ref="registerFromRef"
+        class="register-form"
+        :model="registerForm"
         :rules="rules"
       >
         <el-form-item prop="username">
           <el-input
             placeholder="请输入用户名"
-            v-model.trim="loginForm.username"
+            v-model.trim="registerForm.username"
           >
             <template #prefix>
               <SvgIcon icon="my-user"></SvgIcon>
@@ -21,8 +26,9 @@
         <el-form-item prop="password">
           <el-input
             placeholder="请输入密码"
-            v-model.trim="loginForm.password"
+            v-model.trim="registerForm.password"
             :type="isHidePwd ? 'password' : null"
+            @keyup.enter="handleregister"
           >
             <template #prefix>
               <SvgIcon icon="my-password"></SvgIcon>
@@ -38,14 +44,14 @@
       </el-form>
       <el-button
         :loading="isLoading"
-        class="btn-login"
+        class="btn-register"
         type="primary"
-        @click="handleLogin"
+        @click="handleregister"
       >
         注册
       </el-button>
       <div class="footer">
-        <router-link class="go-login" to="/login"
+        <router-link class="go-register" to="/login"
           >已有账号？去登录！</router-link
         >
       </div>
@@ -61,7 +67,7 @@ import { useRouter } from 'vue-router'
 import { register } from '@/api/sys'
 
 // 表单
-const loginForm = ref({
+const registerForm = ref({
   username: '',
   password: ''
 })
@@ -77,18 +83,18 @@ const rules = ref({
   ]
 })
 const isHidePwd = ref(true)
-const loginFromRef = ref(null)
+const registerFromRef = ref(null)
 const isLoading = ref(false)
 const router = useRouter()
 // 处理注册
-function handleLogin() {
+function handleregister() {
   // 参数校验
-  if (loginFromRef.value) {
-    loginFromRef.value.validateField().then(() => {
+  if (registerFromRef.value) {
+    registerFromRef.value.validateField().then(() => {
       // 动画
       isLoading.value = true
       // 发请求
-      register(loginForm)
+      register(registerForm)
         .then(() => {
           ElMessage.success({ message: '注册成功！' })
           router.push('/login')
@@ -102,11 +108,11 @@ function handleLogin() {
 </script>
 
 <style scoped lang="scss">
-.container {
+.register-container {
   height: 100vh;
-  background: url(@/assets/img/注册背景图.jpg);
+  background: url(@/assets/img/Computer\ display_Outline.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -136,7 +142,7 @@ function handleLogin() {
       font-size: larger;
     }
 
-    .login-form {
+    .register-form {
       :deep(.el-form-item__content) {
       }
     }
@@ -146,7 +152,7 @@ function handleLogin() {
     }
     .footer {
       padding: 20px 0;
-      .go-login {
+      .go-register {
         font-size: small;
         color: rgb(20, 161, 217);
         text-decoration: none;
@@ -156,6 +162,12 @@ function handleLogin() {
 
   :deep(.el-input__wrapper) {
     background-color: #a5b0e414;
+  }
+}
+
+.register-container-mobile {
+  .main {
+    width: 90vw;
   }
 }
 </style>

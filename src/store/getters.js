@@ -4,5 +4,9 @@ export default {
   },
   userInfo(state) {
     return state.user.userInfo
-  }
+  },
+  isCollapseSideBar(state) {
+    return state.layout.isCollapseSideBar
+  },
+  screenInfo: (state) => state.layout.screenInfo
 }

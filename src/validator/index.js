@@ -1,3 +1,4 @@
+// 登录注册密码校验规则
 export const pwdValidator = (rule, value, callback) => {
   value = value.trim()
   if (!(value.length >= 6 && value.length <= 14)) {

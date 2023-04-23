@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
+import store from '@/store'
 const serve = axios.create({
   baseURL: process.env.VUE_APP_baseUrl,
   timeout: 10000,
@@ -9,6 +10,10 @@ const serve = axios.create({
 // 请求拦截器
 serve.interceptors.request.use(
   (config) => {
+    // 如果有token，则在请求头中进行携带,方便进行用户鉴权
+    if (store.getters.token) {
+      config.headers.Authorization = 'Bearer ' + store.getters.token
+    }
     return config
   },
   (error) => {

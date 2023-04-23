@@ -90,7 +90,7 @@ Mock.mock('/api/sys/login', 'post', (options) => {
  */
 Mock.mock(/[\b/api/sys/profile]/, 'get', (options) => {
   // token过期时间
-  const overTime = 1000 * 60 * 30 // 30min
+  const overTime = 1000 * 60 * 60 * 12 // 12h
   // console.log(options.url)
   // url: "/api/sys/profile?token=Bearer+d8c6ed7a-3fd4-46e4-a477-b20d1ce9cda0+1681611859077"
   const lastTime = options.url.split('+')[2]
@@ -110,7 +110,7 @@ Mock.mock(/[\b/api/sys/profile]/, 'get', (options) => {
         username: 'super-admin',
         title: '超级管理员',
         avatar:
-          'https://m.imooc.com/static/wap/static/common/img/logo-small@2x.png',
+          '/favicon.ico',
         permission: {
           menus: [
             'userManage',
@@ -138,6 +138,9 @@ Mock.mock(/[\b/api/sys/profile]/, 'get', (options) => {
   }
 })
 
+/**
+ * 退出登录
+ */
 Mock.mock('/api/sys/logout', 'post', (options) => {
   return {
     success: true,

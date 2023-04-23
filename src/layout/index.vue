@@ -1,13 +1,52 @@
 <template>
-  <div class="layout-container"></div>
+  <div class="layout-container">
+    <SideBar class="sidebar-container"></SideBar>
+    <div class="right-container">
+      <NavBar class="navbar-container"></NavBar>
+      <AppMain class="appmain-container dark" @click="dealWithCollapse"></AppMain>
+    </div>
+  </div>
 </template>
 
-<script setup></script>
+<script setup>
+import AppMain from './AppMain'
+import NavBar from './NavBar'
+import SideBar from './SideBar'
+import { watch } from 'vue'
+import { useStore } from 'vuex'
+import getScreenInfo from '@/utility/get-screen-info'
+const store = useStore()
+// 实时监听页面尺寸，自动收缩侧边栏
+watch(
+  getScreenInfo(),
+  (newvar, oldvar) => {
+    if (newvar.isMobile) {
+      store.commit('layout/SET_isCollapseSideBar', true)
+    } else {
+      store.commit('layout/SET_isCollapseSideBar', false)
+    }
+  },
+  {
+    immediate: true
+  }
+)
+// 当为移动端时，点击AppMain区域的时候要关闭侧边栏
+function dealWithCollapse() {
+  if (store.getters.screenInfo.isMobile) {
+    store.commit('layout/SET_isCollapseSideBar', true)
+  }
+}
+</script>
 
 <style scoped lang="scss">
 .layout-container {
   width: 100vw;
   height: 100vh;
-  background-color: beige;
+  display: flex;
+
+  .right-container {
+    flex-grow: 1;
+    overflow: auto;
+  }
 }
 </style>

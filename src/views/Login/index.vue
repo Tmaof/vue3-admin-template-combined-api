@@ -1,5 +1,10 @@
 <template>
-  <div class="container">
+  <div
+    class="login-container"
+    :class="{
+      'login-container-mobile': $store.getters.screenInfo.isMobile
+    }"
+  >
     <div class="main">
       <p class="title">欢迎登录</p>
       <el-form
@@ -23,6 +28,7 @@
             placeholder="请输入密码"
             v-model.trim="loginForm.password"
             :type="isHidePwd ? 'password' : null"
+            @keyup.enter="handleLogin"
           >
             <template #prefix>
               <SvgIcon icon="my-password"></SvgIcon>
@@ -108,11 +114,11 @@ function handleLogin() {
 </script>
 
 <style scoped lang="scss">
-.container {
+.login-container {
   height: 100vh;
-  background: url(@/assets/img/登录背景图.jpg);
+  background: url(@/assets/img/Computer\ display_Flatline.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,6 +128,10 @@ function handleLogin() {
     flex-direction: column;
     overflow: hidden;
     transition: all 0.3s;
+    width: 30vw;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(250, 252, 254, 0.767);
     border: 1px solid rgba(255, 255, 255, 0);
     &:hover {
       box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6);
@@ -129,10 +139,6 @@ function handleLogin() {
       transform: scale(0.98);
     }
 
-    width: 30vw;
-    padding: 20px;
-    border-radius: 20px;
-    background: rgba(250, 252, 254, 0.767);
     .title {
       margin-bottom: 20px;
       text-align: center;
@@ -159,6 +165,12 @@ function handleLogin() {
 
   :deep(.el-input__wrapper) {
     background-color: #a5b0e414;
+  }
+}
+
+.login-container-mobile {
+  .main {
+    width: 90vw;
   }
 }
 </style>

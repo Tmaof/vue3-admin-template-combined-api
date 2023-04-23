@@ -5,15 +5,23 @@
       v-if="svgType.value == svgType.svgLink"
       class="svg-icon svg-external-icon"
       :style="svgLinkStyle"
+      :class="{ 'hover-scale': props.hoverScale }"
     ></div>
     <!--处理本地svg,使用use标签 -->
     <!-- 处理图标字体类名，使用:class -->
     <svg
       v-else
       class="svg-icon"
-      :class="{ [props.icon]: svgType.value == svgType.svgClass }"
+      :class="{
+        [props.icon]: svgType.value == svgType.svgClass,
+        'hover-scale': props.hoverScale
+      }"
     >
-      <use :xlink:href="`#icon-${props.icon}`"></use>
+      <use
+        :xlink:href="
+          svgType.value == svgType.svgLocal ? `#icon-${props.icon}` : undefined
+        "
+      ></use>
     </svg>
   </div>
 </template>
@@ -33,6 +41,10 @@ const props = defineProps({
     type: String,
     required: true,
     default: ''
+  },
+  hoverScale: {
+    type: Boolean,
+    default: true
   }
 })
 
@@ -45,13 +57,13 @@ const svgLinkStyle = computed(() => {
 })
 
 svgType.value.value = computed(() => {
-  // 没有/的或者开头没有my-的 当作 图标字体类名
-  if (/[^/|^\bmy-]/.test(props.icon)) {
-    return svgType.value.svgClass
+  if (/(https?:|mailto:|tel:)/.test(props.icon)) {
+    return svgType.value.svgLink
+  } else if (/\bmy-/.test(props.icon)) {
+    return svgType.value.svgLocal
   } else {
-    return /[https?:|mailto:|tel:]/.test(props.icon)
-      ? svgType.value.svgLink
-      : svgType.value.svgLocal
+    // 当作 图标字体类名
+    return svgType.value.svgClass
   }
 })
 </script>
@@ -73,6 +85,11 @@ svgType.value.value = computed(() => {
     background-color: currentColor;
     mask-size: cover !important;
     display: inline-block;
+  }
+  .hover-scale {
+    &:hover {
+      transform: scale(0.93);
+    }
   }
 }
 </style>

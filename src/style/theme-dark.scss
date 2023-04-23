@@ -1,0 +1,97 @@
+.theme-dark {
+
+  // 侧边栏
+  .sidebar-container {
+    background-color: $menuBg-dark;
+
+    .top-logo {
+      color: $logoText-dark;
+    }
+
+    .menu {
+      background-color: $menuBg-dark;
+
+      .el-menu {
+        background-color: rgba(0, 0, 0, 0);
+
+        // 主菜单
+        .el-menu-item,
+        .el-sub-menu__title,
+        .el-sub-menu {
+          color: $menuText-dark;
+
+          &:hover {
+            background-color: $menuHover-dark;
+          }
+
+          &.is-active {
+            color: $menuActiveText-dark;
+          }
+        }
+
+        // 子菜单
+        .el-sub-menu {
+          & .el-menu-item {
+            background-color: $subMenuBg-dark;
+
+            &:hover {
+              background-color: $subMenuHover-dark;
+            }
+
+            &.is-active {
+              color: $subMenuActiveText-dark;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 导航栏
+  .navbar-container {
+    background-color: $narBarBg-dark;
+    color: $narBarText-dark;
+
+    .left {
+
+      .menu {
+        .el-breadcrumb__inner {
+          color: $narBarText-dark !important;
+        }
+
+        .el-breadcrumb__inner.is-link:hover {
+          color: rgb(0, 140, 255) !important;
+        }
+
+        .el-breadcrumb__item:last-child .el-breadcrumb__inner,
+        .el-breadcrumb__item:last-child .el-breadcrumb__inner a,
+        .el-breadcrumb__item:last-child .el-breadcrumb__inner a:hover,
+        .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover {
+          font-weight: 400;
+          color: #606266 !important;
+          cursor: text;
+        }
+      }
+
+    }
+
+    .right {
+      .shortcut {
+        background: $shortcutBg-dark;
+      }
+    }
+
+  }
+
+  // 主内容
+  .appmain-container {
+    background-color: $appMainBg-dark;
+    color: $appMainText-dark;
+
+    //TODO:为你的html内容添加自己的暗色样式
+    //例如：
+    // .your-class {
+    //   background: #000;
+    // }
+  }
+}

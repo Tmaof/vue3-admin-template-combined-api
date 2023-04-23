@@ -1,10 +1,16 @@
 import store from '@/store'
 import { ElMessage } from 'element-plus'
+import setDocumentTile from '@/utility/set-document-title'
 // 不需要权限的页面
 const WhiteRoute = ['/login', '/register']
 
 export function useBeforeEach(router) {
   router.beforeEach((to, from, next) => {
+    // 设置文章标题
+    if (to.meta && to.meta.title) {
+      setDocumentTile(to.meta.title, true)
+    }
+
     // 不需要权限的页面
     if (WhiteRoute.includes(to.path)) {
       // 有token，不能再次进入登录页

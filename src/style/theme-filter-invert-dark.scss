@@ -1,0 +1,9 @@
+.theme-filter-invert-dark {
+  filter: invert(1);
+
+  //TODO: 清除filter给图片，视频带来的影响
+  img,
+  video {
+    filter: invert(1) !important;
+  }
+}
