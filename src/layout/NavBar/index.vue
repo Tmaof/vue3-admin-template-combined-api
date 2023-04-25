@@ -11,14 +11,14 @@
         <SvgIcon
           hoverScale
           icon="my-menu-collapse"
-          title="折叠菜单"
+          :title="$t('NavBar.index.268236-0')"
           v-if="!$store.getters.isCollapseSideBar"
           @click="setIsCollSideBar(true)"
         ></SvgIcon>
         <SvgIcon
           hoverScale
           icon="my-menu"
-          title="打开菜单"
+          :title="$t('NavBar.index.268236-1')"
           v-else
           @click="setIsCollSideBar(false)"
         ></SvgIcon>
@@ -37,11 +37,11 @@
         </li>
         <li>
           <el-popconfirm
-            title="确认退出登录吗？"
+            :title="$t('NavBar.index.268236-2')"
             @confirm="$store.dispatch('user/logout')"
           >
             <template #reference>
-              <SvgIcon hoverScale title="退出登录" icon="my-logout"></SvgIcon>
+              <SvgIcon hoverScale :title="$t('NavBar.index.268236-3')" icon="my-logout"></SvgIcon>
             </template>
           </el-popconfirm>
         </li>

@@ -1,0 +1,142 @@
+{
+  "404": {
+    "index": {
+      "268235-0": "Oops, I didn't find the page",
+      "268235-1": "Go back to the homepage",
+      "526555-0": "Oops, I didn't find the page",
+      "526555-1": "Go back to the homepage"
+    }
+  },
+  "Client": {
+    "index": {
+      "268235-0": "customer management",
+      "526555-0": "customer management"
+    }
+  },
+  "Login": {
+    "index": {
+      "268235-0": "Welcome to login",
+      "268235-1": "enter one user name",
+      "268235-2": "Please input a password",
+      "268235-3": "Sign in",
+      "268235-4": "No account? Register!",
+      "268235-5": "Login successful!",
+      "770383-0": "Welcome to login",
+      "770383-1": "enter one user name",
+      "770383-2": "Please input a password",
+      "770383-3": "Sign in",
+      "770383-4": "No account? Register!",
+      "770383-5": "Login successful!"
+    }
+  },
+  "Menu": {
+    "index": {
+      "268235-0": "Menu management",
+      "526556-0": "Menu management"
+    }
+  },
+  "NavBar": {
+    "index": {
+      "268236-0": "Collapse Menu",
+      "268236-1": "open a menu",
+      "268236-2": "Are you sure to log out?",
+      "268236-3": "Log out of login",
+      "526557-0": "Collapse Menu",
+      "526557-1": "open a menu",
+      "526557-2": "Are you sure to log out?",
+      "526557-3": "Log out of login"
+    }
+  },
+  "Register": {
+    "index": {
+      "209608-0": "User registration",
+      "209608-1": "enter one user name",
+      "209608-2": "Please input a password",
+      "209608-3": "register",
+      "209608-4": "Existing account? Go log in!",
+      "209608-5": "Registration successful!",
+      "268234-0": "User registration",
+      "268234-1": "enter one user name",
+      "268234-2": "Please input a password",
+      "268234-3": "register",
+      "268234-4": "Existing account? Go log in!",
+      "268234-5": "Registration successful!"
+    }
+  },
+  "Role": {
+    "index": {
+      "268235-0": "Role Management",
+      "526556-0": "Role Management"
+    }
+  },
+  "ScreenFull": {
+    "index": {
+      "268236-0": "Full screen",
+      "268236-1": "Exit Full Screen",
+      "268236-2": "Your device does not support full screen",
+      "526557-0": "Full screen",
+      "526557-1": "Exit Full Screen",
+      "526557-2": "Your device does not support full screen"
+    }
+  },
+  "User": {
+    "index": {
+      "268235-0": "user management ",
+      "526555-0": "user management "
+    }
+  },
+  "mock": {
+    "sys": {
+      "268235-0": "The username is already in use",
+      "268235-1": "Execution successful",
+      "268235-2": "User not registered or username, password incorrect",
+      "268235-3": "Super administrator",
+      "268235-4": "Successfully obtained information",
+      "268235-5": "Failed to obtain data",
+      "526556-0": "The username is already in use",
+      "526556-1": "Execution successful",
+      "526556-2": "User not registered or username, password incorrect",
+      "526556-3": "Super administrator",
+      "526556-4": "Successfully obtained information",
+      "526556-5": "Failed to obtain data"
+    }
+  },
+  "router": {
+    "permission": {
+      "268236-0": "User authentication has expired, please log in again! thank you",
+      "526554-0": "User authentication has expired, please log in again! thank you"
+    },
+    "routes": {
+      "268236-0": "home page",
+      "268236-1": "customer management",
+      "268236-2": "Permission management",
+      "268236-3": "user management ",
+      "268236-4": "Role Management",
+      "268236-5": "Menu management",
+      "526555-0": "home page",
+      "526555-1": "customer management",
+      "526555-2": "Permission management",
+      "526555-3": "user management ",
+      "526555-4": "Role Management",
+      "526555-5": "Menu management"
+    }
+  },
+  "src": {
+    "settings": {
+      "268235-0": "back-stage management",
+      "526556-0": "back-stage management"
+    }
+  },
+  "utility": {
+    "storage": {
+      "268235-0": "Your browser does not support: localStorage, or you have not enabled this feature.",
+      "526555-0": "Your browser does not support: localStorage, or you have not enabled this feature."
+    }
+  },
+  "validator": {
+    "index": {
+      "268235-0": "Password length requirement is between 6 and 14",
+      "526555-0": "Password length requirement is between 6 and 14"
+    }
+  }
+}

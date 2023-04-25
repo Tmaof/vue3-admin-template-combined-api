@@ -1,3 +1,4 @@
+import i18n from '@/i18n'
 import store from '@/store'
 import { ElMessage } from 'element-plus'
 import setDocumentTile from '@/utility/set-document-title'
@@ -43,7 +44,7 @@ export function useBeforeEach(router) {
             .catch(() => {
               // token过期，需要用户重新登录
               // 先清除token，才能跳转登录页
-              ElMessage.warning('用户认证已经过期，请重新登录！谢谢')
+              ElMessage.warning(i18n.t('router.permission.268236-0'))
               store.commit('user/SET_token', '')
               next('/login')
             })

@@ -1,0 +1,18 @@
+{
+	"zh": {
+		"Login.index.268235-0": "欢迎登录",
+		"Login.index.268235-1": "请输入用户名",
+		"Login.index.268235-2": "请输入密码",
+		"Login.index.268235-3": "登录",
+		"Login.index.268235-4": "没有账号？去注册！",
+		"Login.index.268235-5": "登录成功！"
+	},
+	"en": {
+		"Login.index.268235-0": "",
+		"Login.index.268235-1": "",
+		"Login.index.268235-2": "",
+		"Login.index.268235-3": "",
+		"Login.index.268235-4": "",
+		"Login.index.268235-5": ""
+	}
+}

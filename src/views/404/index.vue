@@ -2,10 +2,10 @@
   <div class="not-find-container">
     <div class="text">
       <div>
-        <p>糟糕 没找到该页面</p>
+        <p>{{ $t('404.index.268235-0') }}</p>
         <p>Oops Page not found</p>
         <p>
-          <router-link to="/">回到首页</router-link>
+          <router-link to="/">{{ $t('404.index.268235-1') }}</router-link>
         </p>
       </div>
     </div>

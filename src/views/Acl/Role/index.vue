@@ -1,5 +1,5 @@
 <template>
-  <div>角色管理</div>
+  <div>{{ $t('Role.index.268235-0') }}</div>
 </template>
 
 <script setup></script>

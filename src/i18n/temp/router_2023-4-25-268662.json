@@ -1,0 +1,18 @@
+{
+	"zh": {
+		"router.routes.268236-0": "首页",
+		"router.routes.268236-1": "客户管理",
+		"router.routes.268236-2": "权限管理",
+		"router.routes.268236-3": "用户管理",
+		"router.routes.268236-4": "角色管理",
+		"router.routes.268236-5": "菜单管理"
+	},
+	"en": {
+		"router.routes.268236-0": "",
+		"router.routes.268236-1": "",
+		"router.routes.268236-2": "",
+		"router.routes.268236-3": "",
+		"router.routes.268236-4": "",
+		"router.routes.268236-5": ""
+	}
+}

@@ -1,5 +1,5 @@
 <template>
-  <div>菜单管理</div>
+  <div>{{ $t('Menu.index.268235-0') }}</div>
 </template>
 
 <script setup></script>

@@ -19,9 +19,13 @@ import '@/style/index.scss'
 import '@/assets/icon'
 // 注册SvgIcon为全局组件
 import SvgIcon from '@/components/SvgIcon'
+// 国际化 vue-i18n
+import { I18N } from '@/i18n'
+
 const app = createApp(App)
   .use(store)
   .use(router)
+  .use(I18N)
   .use(ElementPlus, { locale: zhCn })
 
 app.component('SvgIcon', SvgIcon)

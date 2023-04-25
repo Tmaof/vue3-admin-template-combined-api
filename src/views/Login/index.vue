@@ -6,7 +6,7 @@
     }"
   >
     <div class="main">
-      <p class="title">欢迎登录</p>
+      <p class="title">{{ $t('Login.index.268235-0') }}</p>
       <el-form
         ref="loginFromRef"
         class="login-form"
@@ -15,7 +15,7 @@
       >
         <el-form-item prop="username">
           <el-input
-            placeholder="请输入用户名"
+            :placeholder="$t('Login.index.268235-1')"
             v-model.trim="loginForm.username"
           >
             <template #prefix>
@@ -25,7 +25,7 @@
         </el-form-item>
         <el-form-item prop="password">
           <el-input
-            placeholder="请输入密码"
+            :placeholder="$t('Login.index.268235-2')"
             v-model.trim="loginForm.password"
             :type="isHidePwd ? 'password' : null"
             @keyup.enter="handleLogin"
@@ -48,11 +48,11 @@
         type="primary"
         @click="handleLogin"
       >
-        登录
+        {{ $t('Login.index.268235-3') }}
       </el-button>
       <div class="footer">
         <router-link to="/register" class="go-register"
-          >没有账号？去注册！</router-link
+          >{{ $t('Login.index.268235-4') }}</router-link
         >
       </div>
     </div>
@@ -65,6 +65,8 @@ import { pwdValidator } from '@/validator'
 import { useStore } from 'vuex'
 import { ElMessage } from 'element-plus'
 import { useRouter, useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+const i18n = useI18n()
 // 状态管理
 const store = useStore()
 // 表单
@@ -74,7 +76,7 @@ const loginForm = ref({
 })
 // 表单验证规则
 const rules = ref({
-  username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+  username: [{ required: true, message: i18n.t('Login.index.268235-1'), trigger: 'blur' }],
   password: [
     {
       required: true,
@@ -103,7 +105,7 @@ function handleLogin() {
           router.push({
             path: route.query.redirect ? route.query.redirect : '/'
           })
-          ElMessage.success({ message: '登录成功！' })
+          ElMessage.success({ message: i18n.t('Login.index.268235-5') })
         })
         .finally(() => {
           isLoading.value = false

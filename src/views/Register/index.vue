@@ -6,7 +6,7 @@
     }"
   >
     <div class="main">
-      <p class="title">用户注册</p>
+      <p class="title">{{ $t('Register.index.268234-0') }}</p>
       <el-form
         ref="registerFromRef"
         class="register-form"
@@ -15,7 +15,7 @@
       >
         <el-form-item prop="username">
           <el-input
-            placeholder="请输入用户名"
+            :placeholder="$t('Register.index.268234-1')"
             v-model.trim="registerForm.username"
           >
             <template #prefix>
@@ -25,7 +25,7 @@
         </el-form-item>
         <el-form-item prop="password">
           <el-input
-            placeholder="请输入密码"
+            :placeholder="$t('Register.index.268234-2')"
             v-model.trim="registerForm.password"
             :type="isHidePwd ? 'password' : null"
             @keyup.enter="handleregister"
@@ -48,12 +48,12 @@
         type="primary"
         @click="handleregister"
       >
-        注册
+        {{ $t('Register.index.268234-3') }}
       </el-button>
       <div class="footer">
-        <router-link class="go-register" to="/login"
-          >已有账号？去登录！</router-link
-        >
+        <router-link class="go-register" to="/login">{{
+          $t('Register.index.268234-4')
+        }}</router-link>
       </div>
     </div>
   </div>
@@ -65,7 +65,8 @@ import { pwdValidator } from '@/validator'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
 import { register } from '@/api/sys'
-
+import { useI18n } from 'vue-i18n'
+const i18n = useI18n()
 // 表单
 const registerForm = ref({
   username: '',
@@ -73,7 +74,13 @@ const registerForm = ref({
 })
 // 表单验证规则
 const rules = ref({
-  username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+  username: [
+    {
+      required: true,
+      message: i18n.t('Register.index.268234-1'),
+      trigger: 'blur'
+    }
+  ],
   password: [
     {
       required: true,
@@ -96,7 +103,7 @@ function handleregister() {
       // 发请求
       register(registerForm)
         .then(() => {
-          ElMessage.success({ message: '注册成功！' })
+          ElMessage.success({ message: i18n.t('Register.index.268234-5') })
           router.push('/login')
         })
         .finally(() => {
