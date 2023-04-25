@@ -8,6 +8,7 @@ import store from './store'
 // ElementPlus
 import ElementPlus from 'element-plus'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs' // 中文包
+// import en from 'element-plus/dist/locale/en.min.mjs' //element-plus的英文包
 import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue' // ElementPlus 的图标
 import 'element-plus/theme-chalk/dark/css-vars.css' // 暗夜模式

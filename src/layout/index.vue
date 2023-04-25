@@ -3,7 +3,10 @@
     <SideBar class="sidebar-container"></SideBar>
     <div class="right-container">
       <NavBar class="navbar-container"></NavBar>
-      <AppMain class="appmain-container dark" @click="dealWithCollapse"></AppMain>
+      <AppMain
+        class="appmain-container dark"
+        @click="dealWithCollapse"
+      ></AppMain>
     </div>
   </div>
 </template>
@@ -46,6 +49,7 @@ function dealWithCollapse() {
 
   .right-container {
     flex-grow: 1;
+    flex-shrink: 1;
     overflow: auto;
   }
 }

@@ -18,7 +18,11 @@ export default {
       type: 'img', // 'text'or'img'
       value: '/favicon.ico'
     },
-    uniqueOpened: true // 是否只保持一个子菜单的展开
+    uniqueOpened: true, // 是否只保持一个子菜单的展开
+    // 侧边栏宽度
+    initWidth: 200, // 初始宽度，填写整数，单位是px
+    minDargWidth: 180, // 最小宽度
+    maxDargWidth: 250 // 最大宽度
   },
 
   /**

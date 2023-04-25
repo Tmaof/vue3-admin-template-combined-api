@@ -5,72 +5,142 @@
       'sidebar-container-mobile': $store.getters.screenInfo.isMobile,
       'sidebar-container-collapse': $store.getters.isCollapseSideBar
     }"
+    :style="{
+      width: `${sideBarWidth}px`,
+      transition: isDarging ? undefined : `width ease-in-out 0.3s`
+    }"
+    ref="sideBarRef"
   >
-    <div class="top-logo" v-if="sideBarLogo.isShow">
-      <router-link to="/">
-        <h2 v-if="sideBarLogo.type === 'text'">
-          {{ sideBarLogo.value }}
-        </h2>
-        <el-image
-          v-if="sideBarLogo.type === 'img'"
-          fit="contain"
-          :src="sideBarLogo.value"
-        ></el-image>
-      </router-link>
-    </div>
+    <div class="main">
+      <div class="top-logo" v-if="sideBarLogo.isShow">
+        <router-link to="/">
+          <h2 v-if="sideBarLogo.type === 'text'">
+            {{ sideBarLogo.value }}
+          </h2>
+          <el-image
+            v-if="sideBarLogo.type === 'img'"
+            fit="contain"
+            :src="sideBarLogo.value"
+          ></el-image>
+        </router-link>
+      </div>
 
-    <el-scrollbar>
-      <SidebarMenu></SidebarMenu>
-    </el-scrollbar>
+      <el-scrollbar>
+        <SidebarMenu></SidebarMenu>
+      </el-scrollbar>
+    </div>
+    <div
+      class="darg-line"
+      ref="dargLineRef"
+      :style="{
+        cursor: $store.getters.isCollapseSideBar ? undefined : ' e-resize'
+      }"
+    ></div>
   </div>
 </template>
 
 <script setup>
 import settings from '@/settings'
 import SidebarMenu from './SidebarMenu/SidebarMenu.vue'
-const { sideBarLogo = { isShow: false } } = settings.sideBar
+import { onMounted, ref } from 'vue'
+import { useStore } from 'vuex'
+const store = useStore()
+
+const {
+  sideBarLogo = { isShow: false },
+  minDargWidth,
+  maxDargWidth,
+  initWidth
+} = settings.sideBar
+const dargLineRef = ref({})
+const sideBarRef = ref({})
+const sideBarWidth = ref(initWidth)
+const isDarging = ref(false) // 拖动过程中，不需要过渡效果
+function setIsCollSideBar(value) {
+  store.commit('layout/SET_isCollapseSideBar', value)
+}
+function addDargEvent() {
+  function mousemove(e) {
+    let temp = sideBarWidth.value
+    temp += e.movementX
+    if (temp < minDargWidth) {
+      mouseup()
+      setIsCollSideBar(true)
+    } else if (temp > maxDargWidth) {
+      mouseup()
+    } else {
+      sideBarWidth.value = temp
+    }
+  }
+  function mouseup() {
+    document.removeEventListener('mousemove', mousemove)
+    document.removeEventListener('mouseup', mouseup)
+    isDarging.value = false
+  }
+  function mousedown() {
+    isDarging.value = true
+    document.addEventListener('mousemove', mousemove)
+    document.addEventListener('mouseup', mouseup)
+  }
+  dargLineRef.value.addEventListener('mousedown', mousedown)
+}
+onMounted(() => {
+  addDargEvent()
+})
 </script>
 
 <style lang="scss" scoped>
 @import '@/style/index.scss';
 .sidebar-container {
-  width: $sideBarWidth;
+  display: flex;
+  position: relative;
+  flex-direction: row;
   overflow: hidden;
-  transition: width ease-in-out 0.3s;
-  .top-logo {
-    display: flex;
-    justify-content: center;
-    height: $narBarHeight;
-    width: $sideBarWidth;
-    line-height: $narBarHeight;
-    text-align: center;
 
-    h2 {
-      font-weight: bolder;
-      font-size: larger;
+  .main {
+    flex-shrink: 1;
+    flex-grow: 1;
+    .top-logo {
+      display: flex;
+      justify-content: center;
+      height: $narBarHeight;
+      line-height: $narBarHeight;
+      text-align: center;
+
+      h2 {
+        font-weight: bolder;
+        font-size: larger;
+      }
+    }
+
+    :deep(.menu) {
+      .el-menu {
+        border: none;
+        // 主菜单
+        .el-menu-item,
+        .el-sub-menu__title,
+        .el-sub-menu {
+          font-size: $menuFontSize;
+          font-weight: $menuFontWeight;
+        }
+      }
     }
   }
 
-  :deep(.menu) {
-    .el-menu {
-      border: none;
-      // 主菜单
-      .el-menu-item,
-      .el-sub-menu__title,
-      .el-sub-menu {
-        font-size: $menuFontSize;
-        font-weight: $menuFontWeight;
-      }
-    }
+  .darg-line {
+    position: absolute;
+    right: 0;
+    width: 10px;
+    height: 100%;
+  }
+
+  &:hover .unfold-btn {
+    display: inline;
   }
 }
 
 .sidebar-container-collapse {
   width: 64px !important;
-
-  .top-logo {
-    opacity: 0;
-  }
 }
 
 .sidebar-container-mobile {

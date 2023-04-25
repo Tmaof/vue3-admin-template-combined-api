@@ -47,21 +47,21 @@ const privateRoutes = [
         path: 'user',
         component: () => import('@/views/Acl/User'),
         meta: {
-          title: '用户管理'
+          title: '员工列表'
         }
       },
       {
         path: 'role',
         component: () => import('@/views/Acl/Role'),
         meta: {
-          title: '角色管理'
+          title: '角色列表'
         }
       },
       {
         path: 'menu',
         component: () => import('@/views/Acl/Menu'),
         meta: {
-          title: '菜单管理'
+          title: '权限列表'
         }
       }
     ]

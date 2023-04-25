@@ -2,8 +2,8 @@
   <div class="not-find-container">
     <div class="text">
       <div>
-        <p>糟糕 没找到该页面</p>
-        <p>Oops Page not found</p>
+        <p>没找到该页面</p>
+        <p>Page not found</p>
         <p>
           <router-link to="/">回到首页</router-link>
         </p>
@@ -32,7 +32,7 @@
       font-weight: bold;
     }
     a {
-      font-size:small;
+      font-size: small;
       text-decoration-line: none;
       color: rgb(0, 110, 255);
     }
