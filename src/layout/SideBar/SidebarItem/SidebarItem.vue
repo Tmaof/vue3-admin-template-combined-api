@@ -6,7 +6,7 @@
         v-if="props.route.meta.icon"
         :icon="props.route.meta.icon"
       ></SvgIcon>
-      <span class="menu-title">{{ props.route.meta.title }}</span>
+      <span class="menu-title">{{ getI18nValue(props.route.meta.title) }}</span>
     </template>
     <!-- 递归自己 -->
     <SidebarItem
@@ -22,13 +22,13 @@
       v-if="props.route.meta.icon"
       :icon="props.route.meta.icon"
     ></SvgIcon>
-    <span class="menu-title"> {{ props.route.meta.title }} </span>
+    <span class="menu-title"> {{ getI18nValue(props.route.meta.title) }} </span>
   </el-menu-item>
 </template>
 
 <script setup>
 import { defineProps, computed, onMounted } from 'vue'
-
+import { getI18nValue } from '@/i18n'
 const props = defineProps({
   route: {
     type: Object,

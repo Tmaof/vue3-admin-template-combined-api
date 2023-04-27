@@ -1,0 +1,108 @@
+{
+  "404": {
+    "index": {
+      "808362-0": "The page was not found",
+      "808362-1": "Go back to the homepage"
+    }
+  },
+  "Client": {
+    "index": {
+      "808362-0": "client management"
+    }
+  },
+  "LanguageSwitch": {
+    "index": {
+      "808363-0": "Select Language",
+      "808363-1": "中文",
+      "808363-2": "english"
+    }
+  },
+  "Login": {
+    "index": {
+      "808362-0": "Welcome to login",
+      "808362-1": "enter one user name",
+      "808362-2": "Please input a password",
+      "808362-3": "Sign in",
+      "808362-4": "No account? Register!",
+      "808362-5": "Login successful!"
+    }
+  },
+  "Menu": {
+    "index": {
+      "808362-0": "Permission List"
+    }
+  },
+  "NavBar": {
+    "index": {
+      "808363-0": "Collapse Menu",
+      "808363-1": "open a menu",
+      "808363-2": "Are you sure to log out?",
+      "808363-3": "Log out of login"
+    }
+  },
+  "Register": {
+    "index": {
+      "808361-0": "User registration",
+      "808361-1": "enter one user name",
+      "808361-2": "Please input a password",
+      "808361-3": "register",
+      "808361-4": "Existing account? Go log in!",
+      "808361-5": "Registration successful!"
+    }
+  },
+  "Role": {
+    "index": {
+      "808362-0": "Role List"
+    }
+  },
+  "ScreenFull": {
+    "index": {
+      "808363-0": "Full screen",
+      "808363-1": "Exit Full Screen",
+      "808363-2": "Your device does not support full screen"
+    }
+  },
+  "User": {
+    "index": {
+      "808362-0": "Employee List"
+    }
+  },
+  "mock": {
+    "sys": {
+      "808363-0": "The username is already in use",
+      "808363-1": "Execution successful",
+      "808363-2": "User not registered or username, password incorrect",
+      "808363-3": "Super administrator",
+      "808363-4": "Successfully obtained information",
+      "808363-5": "Failed to obtain data"
+    }
+  },
+  "router": {
+    "permission": {
+      "808363-0": "User authentication has expired, please log in again! thank you"
+    },
+    "routes": {
+      "808363-0": "home page",
+      "808363-1": "customer management",
+      "808363-2": "Permission management",
+      "808363-3": "Employee List",
+      "808363-4": "Role List",
+      "808363-5": "Permission List"
+    }
+  },
+  "src": {
+    "settings": {
+      "808362-0": "back-stage management"
+    }
+  },
+  "utility": {
+    "storage": {
+      "808362-0": "Your browser does not support: localStorage, or you have not enabled this feature."
+    }
+  },
+  "validator": {
+    "index": {
+      "808362-0": "Password length requirement is between 6 and 14"
+    }
+  }
+}
