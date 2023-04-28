@@ -22,6 +22,7 @@ import routes from '@/router/routes'
 import SidebarItem from '../SidebarItem/SidebarItem.vue'
 import { computed } from 'vue'
 import settings from '@/settings'
+
 const NewRoutes = computed(() => {
   const retRoutes = []
   for (const value of routes) {

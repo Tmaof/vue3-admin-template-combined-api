@@ -12,6 +12,4 @@ const router = createRouter({
 // 路由页面权限管理，全局前置导航守卫
 useBeforeEach(router)
 
-console.log(router.getRoutes())
-
 export default router

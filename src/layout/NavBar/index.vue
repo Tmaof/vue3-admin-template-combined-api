@@ -31,6 +31,7 @@
     </div>
     <div class="right">
       <ul class="shortcut">
+        <li><PageSearch></PageSearch></li>
         <li><LightDarkSwitch :normalMode="true"></LightDarkSwitch></li>
         <li>
           <ScreenFull></ScreenFull>
@@ -63,6 +64,7 @@ import settings from '@/settings'
 import Breadcrumb from '@/components/Breadcrumb'
 import ScreenFull from '@/components/ScreenFull'
 import LightDarkSwitch from '@/components/LightDarkSwitch'
+import PageSearch from '@/components/PageSearch'
 const store = useStore()
 function setIsCollSideBar(value) {
   store.commit('layout/SET_isCollapseSideBar', value)
@@ -119,6 +121,9 @@ function setIsCollSideBar(value) {
   position: sticky;
   top: 0;
 }
+/**
+移动端时，不显示面包屑
+ */
 .navbar-container-mobile {
   .left {
     .breadcrumb {
