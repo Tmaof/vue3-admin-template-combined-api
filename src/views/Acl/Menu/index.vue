@@ -1,5 +1,5 @@
 <template>
-  <div>权限列表</div>
+  <div>{{ $t('Menu.index.808362-0') }}</div>
 </template>
 
 <script setup></script>

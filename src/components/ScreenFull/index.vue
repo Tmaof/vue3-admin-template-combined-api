@@ -4,14 +4,14 @@
     v-if="!isFull"
     @click="isFull = true"
     :hoverScale="true"
-    title="全屏"
+    :title="$t('ScreenFull.index.808363-0')"
   ></SvgIcon>
   <SvgIcon
     icon="my-screenfull-no"
     :hoverScale="true"
     v-else
     @click="isFull = false"
-    title="退出全屏"
+    :title="$t('ScreenFull.index.808363-1')"
   ></SvgIcon>
 </template>
 <script setup>
@@ -25,7 +25,7 @@ function setScreenFull(isFull) {
     if (screenfull.isEnabled) {
       screenfull.request()
     } else {
-      ElMessage.info('你的设备不支持全屏')
+      ElMessage.info(this.$t('ScreenFull.index.808363-2'))
     }
   } else {
     screenfull.exit()

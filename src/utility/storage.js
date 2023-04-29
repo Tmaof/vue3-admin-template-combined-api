@@ -1,3 +1,4 @@
+import i18n from '@/i18n'
 import { ElMessage } from 'element-plus'
 /**
  * 浏览器是否支持storge,或者是否开启
@@ -33,7 +34,7 @@ function storageAvailable(type) {
 
 export function setItem(key, value) {
   if (!storageAvailable('localStorage')) {
-    ElMessage.warning('您的浏览器不支持：localStorage，或者您并未开启此功能。')
+    ElMessage.warning(i18n.t('utility.storage.808362-0'))
     return
   }
 
