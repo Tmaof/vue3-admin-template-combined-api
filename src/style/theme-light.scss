@@ -86,6 +86,13 @@
     }
   }
 
+  // TagsView
+  .tags-view-container {
+    border-top: 1px solid $tagsViewBorder;
+    border-bottom: 1px solid $tagsViewBorder;
+    background-color: $tagsViewBg;
+  }
+
   // 主内容
   .appmain-container {
     background-color: $appMainBg;

@@ -95,6 +95,7 @@ onMounted(() => {
   display: flex;
   position: relative;
   flex-direction: row;
+  flex-shrink: 0;
   overflow: hidden;
 
   .main {

@@ -1,5 +1,8 @@
 <template>
-  <div>客户管理</div>
+  <div>
+    客户管理
+    <input />
+  </div>
 </template>
 
 <script setup></script>
