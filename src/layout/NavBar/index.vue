@@ -11,14 +11,14 @@
           <SvgIcon
             hoverScale
             icon="my-menu-collapse"
-            title="折叠菜单"
+            :title="$t('NavBar.index.808363-0')"
             v-if="!$store.getters.isCollapseSideBar"
             @click="setIsCollSideBar(true)"
           ></SvgIcon>
           <SvgIcon
             hoverScale
             icon="my-menu"
-            title="打开菜单"
+            :title="$t('NavBar.index.808363-1')"
             v-else
             @click="setIsCollSideBar(false)"
           ></SvgIcon>
@@ -31,17 +31,27 @@
       </div>
       <div class="right">
         <ul class="shortcut">
+          <li>
+            <LanguageSwitch
+              :langList="langList"
+              @langChange="changeGlobalLanguage"
+            ></LanguageSwitch>
+          </li>
           <li><LightDarkSwitch :normalMode="true"></LightDarkSwitch></li>
           <li>
             <ScreenFull></ScreenFull>
           </li>
           <li>
             <el-popconfirm
-              title="确认退出登录吗？"
+              :title="$t('NavBar.index.808363-2')"
               @confirm="$store.dispatch('user/logout')"
             >
               <template #reference>
-                <SvgIcon hoverScale title="退出登录" icon="my-logout"></SvgIcon>
+                <SvgIcon
+                  hoverScale
+                  :title="$t('NavBar.index.808363-3')"
+                  icon="my-logout"
+                ></SvgIcon>
               </template>
             </el-popconfirm>
           </li>
@@ -66,6 +76,9 @@ import settings from '@/settings'
 import Breadcrumb from '@/components/Breadcrumb'
 import ScreenFull from '@/components/ScreenFull'
 import LightDarkSwitch from '@/components/LightDarkSwitch'
+import LanguageSwitch from '@/components/LanguageSwitch'
+import { langList, changeGlobalLanguage } from '@/i18n'
+
 const store = useStore()
 function setIsCollSideBar(value) {
   store.commit('layout/SET_isCollapseSideBar', value)

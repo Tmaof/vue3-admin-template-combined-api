@@ -1,3 +1,4 @@
+import i18n from '@/i18n'
 // mock.js
 import Mock from 'mockjs'
 import { setItem, getItem } from '@/utility/storage'
@@ -26,7 +27,7 @@ Mock.mock('/api/sys/register', 'post', (options) => {
         success: false,
         code: 10000,
         data: {},
-        message: '用户名已经被占用'
+        message: i18n.t('mock.sys.808363-0')
       }
     }
   }
@@ -38,7 +39,7 @@ Mock.mock('/api/sys/register', 'post', (options) => {
     success: true,
     code: 10000,
     data: {},
-    message: '执行成功'
+    message: i18n.t('mock.sys.808363-1')
   }
 })
 
@@ -56,7 +57,7 @@ Mock.mock('/api/sys/login', 'post', (options) => {
         data: {
           token: `Bearer d8c6ed7a-3fd4-46e4-a477-b20d1ce9cda0 ${Date.now()}`
         },
-        message: '执行成功'
+        message: i18n.t('mock.sys.808363-1')
       }
     }
   }
@@ -72,7 +73,7 @@ Mock.mock('/api/sys/login', 'post', (options) => {
         data: {
           token: `Bearer d8c6ed7a-3fd4-46e4-a477-b20d1ce9cda0 ${Date.now()}`
         },
-        message: '执行成功'
+        message: i18n.t('mock.sys.808363-1')
       }
     }
   }
@@ -81,7 +82,7 @@ Mock.mock('/api/sys/login', 'post', (options) => {
     success: false,
     code: 10000,
     data: {},
-    message: '用户未注册或者用户名，密码错误'
+    message: i18n.t('mock.sys.808363-2')
   }
 })
 
@@ -102,13 +103,13 @@ Mock.mock(/[\b/api/sys/profile]/, 'get', (options) => {
         role: [
           {
             id: '1',
-            title: '超级管理员'
+            title: i18n.t('mock.sys.808363-3')
           }
         ],
         _id: '612710a0ec87aa543c9c341d',
         id: '0',
         username: 'super-admin',
-        title: '超级管理员',
+        title: i18n.t('mock.sys.808363-3'),
         avatar:
           '/favicon.ico',
         permission: {
@@ -127,13 +128,13 @@ Mock.mock(/[\b/api/sys/profile]/, 'get', (options) => {
           ]
         }
       },
-      message: '获取资料成功'
+      message: i18n.t('mock.sys.808363-4')
     }
   } else {
     return {
       success: false,
       code: 200,
-      message: '获取资料失败'
+      message: i18n.t('mock.sys.808363-5')
     }
   }
 })
@@ -146,6 +147,6 @@ Mock.mock('/api/sys/logout', 'post', (options) => {
     success: true,
     code: 10000,
     data: {},
-    message: '执行成功'
+    message: i18n.t('mock.sys.808363-1')
   }
 })

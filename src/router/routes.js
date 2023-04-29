@@ -1,3 +1,4 @@
+import i18n from '@/i18n'
 import Layout from '@/layout'
 
 export const publicRoutes = [
@@ -22,12 +23,12 @@ const privateRoutes = [
     path: '/',
     redirect: '/client',
     component: Layout,
-    meta: { title: '首页' },
+    meta: { title: i18n.$t('router.routes.808363-0') },
     children: [
       {
         path: 'client',
         meta: {
-          title: '客户管理',
+          title: i18n.$t('router.routes.808363-1'),
           icon: 'my-user'
         },
         component: () => import('@/views/Client')
@@ -39,7 +40,7 @@ const privateRoutes = [
     redirect: '/acl/user',
     component: Layout,
     meta: {
-      title: '权限管理',
+      title: i18n.$t('router.routes.808363-2'),
       icon: 'my-key'
     },
     children: [
@@ -47,21 +48,21 @@ const privateRoutes = [
         path: 'user',
         component: () => import('@/views/Acl/User'),
         meta: {
-          title: '员工列表'
+          title: i18n.$t('router.routes.808363-3')
         }
       },
       {
         path: 'role',
         component: () => import('@/views/Acl/Role'),
         meta: {
-          title: '角色列表'
+          title: i18n.$t('router.routes.808363-4')
         }
       },
       {
         path: 'menu',
         component: () => import('@/views/Acl/Menu'),
         meta: {
-          title: '权限列表'
+          title: i18n.$t('router.routes.808363-5')
         }
       }
     ]

@@ -1,6 +1,6 @@
 <template>
   <div>
-    客户管理
+    <div>{{ $t('Client.index.808362-0') }}</div>
     <input />
   </div>
 </template>
