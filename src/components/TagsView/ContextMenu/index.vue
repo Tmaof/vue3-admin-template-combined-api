@@ -39,8 +39,9 @@ const style = computed(() => {
   position: fixed;
 
   ul > li {
-    padding: 10px 35px;
+    padding: 5px 30px;
     cursor: default;
+    font-size: small;
     &:hover {
       background-color: rgba(176, 173, 173, 0.15);
     }
