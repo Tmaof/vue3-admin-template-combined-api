@@ -73,11 +73,17 @@ function addDargEvent() {
     }
   }
   function mouseup() {
+    setTimeout(() => {
+      document.onselectstart = null
+    }, 1000)
     document.removeEventListener('mousemove', mousemove)
     document.removeEventListener('mouseup', mouseup)
     isDarging.value = false
   }
   function mousedown() {
+    document.onselectstart = function () {
+      return false
+    }
     isDarging.value = true
     document.addEventListener('mousemove', mousemove)
     document.addEventListener('mouseup', mouseup)
