@@ -1,11 +1,12 @@
 <template>
-  <div class="page-seach-container">
+  <div class="page-seach-container" @click.stop>
     <el-popover :visible="isShowRes" v-if="isSeach">
       <template #reference>
         <el-input
           ref="inputRef"
           v-model.trim="searchValue"
           @input="onInputChange"
+          @click.stop
         >
           <template #suffix>
             <SvgIcon
@@ -18,7 +19,7 @@
       </template>
       <!-- 搜索结果 -->
       <template #default>
-        <ul class="search-list">
+        <ul class="search-list" @click.stop>
           <li v-for="item of resList" :key="item.item.path">
             <router-link :to="item.item.path">{{
               item.item.title
@@ -47,12 +48,16 @@ function onSeach() {
   nextTick(() => {
     inputRef.value.focus()
   })
+  // 点击页面其他部分时，也关闭搜索框
+  // 点击搜索框时，需要阻止事件冒泡
+  document.addEventListener('click', onIptBlur)
 }
 // 关闭输入框
 function onIptBlur() {
   isSeach.value = false
   isShowRes.value = false
   searchValue.value = '' // 清空输入
+  document.removeEventListener('click', onIptBlur)
 }
 // 输入内容改变
 function onInputChange(value) {
