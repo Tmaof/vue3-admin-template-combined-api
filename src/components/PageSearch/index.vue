@@ -1,6 +1,6 @@
 <template>
   <div class="page-seach-container">
-    <el-popover :visible="isShowRes" v-if="isSeach">
+    <el-popover :visible="isShowRes" v-if="isSeach" width="auto">
       <template #reference>
         <el-input
           ref="inputRef"
@@ -11,7 +11,7 @@
             <SvgIcon
               icon="my-seach"
               @click="onIptBlur"
-              title="关闭搜索"
+              :title="$t('PageSearch.index.961440-0')"
             ></SvgIcon>
           </template>
         </el-input>
@@ -24,11 +24,11 @@
               item.item.title
             }}</router-link>
           </li>
-          <li v-show="!resList.length">搜索结果为空</li>
+          <li v-show="!resList.length">{{ $t('PageSearch.index.961440-1') }}</li>
         </ul>
       </template>
     </el-popover>
-    <SvgIcon v-else icon="my-seach" @click="onSeach" title="开始搜索"></SvgIcon>
+    <SvgIcon v-else icon="my-seach" @click="onSeach" :title="$t('PageSearch.index.961440-2')"></SvgIcon>
   </div>
 </template>
 <script setup>
@@ -57,7 +57,7 @@ function onIptBlur() {
 // 输入内容改变
 function onInputChange(value) {
   isShowRes.value = true
-  resList.value = fuse.search(value)
+  resList.value = fuse.value.search(value)
 }
 </script>
 <style lang="scss">

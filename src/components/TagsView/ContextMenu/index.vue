@@ -2,9 +2,9 @@
   <div class="content-menu-container" :style="style" v-show="visble">
     <el-card :body-style="{ padding: '10px 0' }" shadow="never">
       <ul>
-        <li @click="this.$emit('refreshThePage')">刷新页面</li>
-        <li @click="this.$emit('closeTheRightTabs')">关闭右侧选项卡</li>
-        <li @click="this.$emit('closeTheOtherTabs')">关闭其他选项卡</li>
+        <li @click="this.$emit('refreshThePage')">{{ $t('ContextMenu.index.322055-0') }}</li>
+        <li @click="this.$emit('closeTheRightTabs')">{{ $t('ContextMenu.index.322055-1') }}</li>
+        <li @click="this.$emit('closeTheOtherTabs')">{{ $t('ContextMenu.index.322055-2') }}</li>
       </ul>
     </el-card>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <div>员工列表</div>
+  <div>{{ $t('User.index.808362-0') }}</div>
 </template>
 
 <script setup></script>
