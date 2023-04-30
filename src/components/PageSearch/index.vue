@@ -1,11 +1,12 @@
 <template>
-  <div class="page-seach-container">
+  <div class="page-seach-container" @click.stop>
     <el-popover :visible="isShowRes" v-if="isSeach" width="auto">
       <template #reference>
         <el-input
           ref="inputRef"
           v-model.trim="searchValue"
           @input="onInputChange"
+          @click.stop
         >
           <template #suffix>
             <SvgIcon
@@ -18,17 +19,24 @@
       </template>
       <!-- 搜索结果 -->
       <template #default>
-        <ul class="search-list">
+        <ul class="search-list" @click.stop>
           <li v-for="item of resList" :key="item.item.path">
             <router-link :to="item.item.path">{{
               item.item.title
             }}</router-link>
           </li>
-          <li v-show="!resList.length">{{ $t('PageSearch.index.961440-1') }}</li>
+          <li v-show="!resList.length">
+            {{ $t('PageSearch.index.961440-1') }}
+          </li>
         </ul>
       </template>
     </el-popover>
-    <SvgIcon v-else icon="my-seach" @click="onSeach" :title="$t('PageSearch.index.961440-2')"></SvgIcon>
+    <SvgIcon
+      v-else
+      icon="my-seach"
+      @click="onSeach"
+      :title="$t('PageSearch.index.961440-2')"
+    ></SvgIcon>
   </div>
 </template>
 <script setup>
@@ -47,12 +55,14 @@ function onSeach() {
   nextTick(() => {
     inputRef.value.focus()
   })
+  document.addEventListener('click', onIptBlur)
 }
 // 关闭输入框
 function onIptBlur() {
   isSeach.value = false
   isShowRes.value = false
   searchValue.value = '' // 清空输入
+  document.removeEventListener('click', onIptBlur)
 }
 // 输入内容改变
 function onInputChange(value) {

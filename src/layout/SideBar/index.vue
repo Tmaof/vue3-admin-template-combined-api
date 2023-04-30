@@ -63,6 +63,7 @@ function addDargEvent() {
   function mousemove(e) {
     let temp = sideBarWidth.value
     temp += e.movementX
+    // 拖动结束，超过了允许宽度的最大，最小值
     if (temp < minDargWidth) {
       mouseup()
       setIsCollSideBar(true)
@@ -73,11 +74,20 @@ function addDargEvent() {
     }
   }
   function mouseup() {
+    // 拖动结束后再开放选中文字。
+    setTimeout(() => {
+      document.onselectstart = null
+    }, 1000)
     document.removeEventListener('mousemove', mousemove)
     document.removeEventListener('mouseup', mouseup)
     isDarging.value = false
   }
+
   function mousedown() {
+    // 在拖动过程中，禁止选中文字
+    document.onselectstart = function () {
+      return false
+    }
     isDarging.value = true
     document.addEventListener('mousemove', mousemove)
     document.addEventListener('mouseup', mouseup)
