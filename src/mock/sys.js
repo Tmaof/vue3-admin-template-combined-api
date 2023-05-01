@@ -105,19 +105,18 @@ Mock.mock(/[\b/api/sys/profile]/, 'get', (options) => {
             title: '超级管理员'
           }
         ],
-        _id: '612710a0ec87aa543c9c341d',
         id: '0',
-        username: 'super-admin',
-        title: '超级管理员',
-        avatar:
-          '/favicon.ico',
+        username: 'admin',
+        title: '管理员',
+        avatar: '/favicon.ico',
         permission: {
           menus: [
-            'userManage',
-            'roleList',
-            'permissionList',
-            'articleRanking',
-            'articleCreate'
+            'home',
+            'client-management',
+            'acl',
+            'user-list',
+            'role-list',
+            'menu-list'
           ],
           points: [
             'distributeRole',
@@ -127,7 +126,7 @@ Mock.mock(/[\b/api/sys/profile]/, 'get', (options) => {
           ]
         }
       },
-      message: '获取资料成功'
+      message: '获取用户信息成功'
     }
   } else {
     return {

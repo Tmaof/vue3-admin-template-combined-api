@@ -17,15 +17,15 @@ export const publicRoutes = [
   }
 ]
 
-const privateRoutes = [
+export const privateRoutes = [
   {
     path: '/',
-    redirect: '/client',
+    name: 'home',
     component: Layout,
-    meta: { title: '首页' },
     children: [
       {
         path: 'client',
+        name: 'client-management',
         meta: {
           title: '客户管理',
           icon: 'my-user'
@@ -36,6 +36,7 @@ const privateRoutes = [
   },
   {
     path: '/acl',
+    name: 'acl',
     redirect: '/acl/user',
     component: Layout,
     meta: {
@@ -45,6 +46,7 @@ const privateRoutes = [
     children: [
       {
         path: 'user',
+        name: 'user-list',
         component: () => import('@/views/Acl/User'),
         meta: {
           title: '员工列表'
@@ -52,6 +54,7 @@ const privateRoutes = [
       },
       {
         path: 'role',
+        name: 'role-list',
         component: () => import('@/views/Acl/Role'),
         meta: {
           title: '角色列表'
@@ -59,6 +62,7 @@ const privateRoutes = [
       },
       {
         path: 'menu',
+        name: 'menu-list',
         component: () => import('@/views/Acl/Menu'),
         meta: {
           title: '权限列表'
@@ -68,4 +72,4 @@ const privateRoutes = [
   }
 ]
 
-export default [...publicRoutes, ...privateRoutes]
+export default publicRoutes

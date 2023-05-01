@@ -10,7 +10,6 @@ export function useBeforeEach(router) {
     if (to.meta && to.meta.title) {
       setDocumentTile(to.meta.title, true)
     }
-
     // 不需要权限的页面
     if (WhiteRoute.includes(to.path)) {
       // 有token，不能再次进入登录页
@@ -38,7 +37,7 @@ export function useBeforeEach(router) {
             .dispatch('user/getUserInfo')
             .then(() => {
               // 没有过期，放行
-              next()
+              next(to.fullPath)
             })
             .catch(() => {
               // token过期，需要用户重新登录

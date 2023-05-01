@@ -33,22 +33,35 @@ export default {
           .catch((error) => reject(error))
       })
     },
-    getUserInfo({ commit }) {
+    getUserInfo({ commit, dispatch }) {
       return new Promise((resolve, reject) => {
         getUserInfo()
-          .then((data) => {
+          .then(async (data) => {
             // 保存用户信息到仓库
             commit('SET_userInfo', data)
-
+            // 等待路由计算完成
+            // 启用了命名空间的 getter 和 action 会收到局部化的 getter，dispatch 和 commit。
+            // 若需要在全局命名空间内分发 action 或提交 mutation，将 { root: true } 作为第三参数传给 dispatch 或 commit 即可。
+            await dispatch('routes/computedUserRoutes', data.permission.menus, {
+              root: true
+            })
             resolve()
           })
-          .catch((error) => reject(error))
+          .catch((error) => {
+            console.log(error)
+            reject(error)
+          })
       })
     },
-    logout({ commit }) {
-      logout().then(() => {
-        // 删除token,跳转登录页
+    logout({ commit, dispatch }) {
+      logout().then(async () => {
+        // 删除token
         commit('SET_token', '')
+        // 删除用户信息
+        commit('SET_userInfo', null)
+        // 重置vue-router为公有路由表
+        await dispatch('routes/resetToPublicRoutes', null, { root: true })
+        // 跳转登录页
         router.push('/login')
       })
     }

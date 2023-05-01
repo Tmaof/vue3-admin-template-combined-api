@@ -48,7 +48,7 @@
       </ul>
       <el-avatar
         shape="circle"
-        :src="$store.getters.userInfo.avatar"
+        :src="$store.getters.userInfo ? $store.getters.userInfo.avatar : ''"
         fit="cover"
       >
         <SvgIcon icon="my-user"></SvgIcon>
