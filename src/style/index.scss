@@ -9,6 +9,8 @@
 @import './theme-light.scss';
 @import './theme-filter-invert-dark.scss';
 @import './theme-filter-invert-light.scss';
+// 一些通用的移动端样式
+@import './mobile.scss';
 
 // 边框盒模型
 * {
@@ -21,10 +23,11 @@
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #0000003d;
-  border-radius: 20px;
+  border-radius: 5px;
 }

@@ -1,5 +1,8 @@
 <template>
-  <div class="layout-container">
+  <div
+    class="layout-container"
+    :class="{ 'mobile-container-global': ScreenInfo.isMobile }"
+  >
     <SideBar class="sidebar-container"></SideBar>
     <div class="right-container">
       <NavBar class="navbar-container"></NavBar>
@@ -18,10 +21,11 @@ import SideBar from './SideBar'
 import { watch } from 'vue'
 import { useStore } from 'vuex'
 import getScreenInfo from '@/utility/get-screen-info'
+const ScreenInfo = getScreenInfo()
 const store = useStore()
 // 实时监听页面尺寸，自动收缩侧边栏
 watch(
-  getScreenInfo(),
+  ScreenInfo,
   (newvar, oldvar) => {
     if (newvar.isMobile) {
       store.commit('layout/SET_isCollapseSideBar', true)

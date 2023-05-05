@@ -22,7 +22,9 @@ export default {
     // 侧边栏宽度
     initWidth: 200, // 初始宽度，填写整数，单位是px
     minDargWidth: 180, // 最小宽度
-    maxDargWidth: 250 // 最大宽度
+    maxDargWidth: 250, // 最大宽度
+    // 移动端侧边栏折叠
+    mobileCollapseToZero: true // 侧边栏宽度会收缩到0
   },
 
   /**

@@ -2,6 +2,8 @@
   <div
     :class="{
       'appmain-container': true,
+      'appmain-margin-left-mobile':
+        $store.getters.screenInfo.isMobile && !mobileCollapseToZero,
       'appmain-container-mobile': $store.getters.screenInfo.isMobile
     }"
   >
@@ -9,15 +11,22 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import settings from '@/settings'
+const { mobileCollapseToZero } = settings.sideBar
+</script>
 
 <style lang="scss" scoped>
 @import '@/style/index.scss';
 .appmain-container {
-  height: 100vh;
+  min-height: 100vh;
   padding: $appMainPadding;
 }
+.appmain-margin-left-mobile {
+  margin-left: $sidebarCollapseWidth - 1px;
+}
+
 .appmain-container-mobile {
-  margin-left: 63px;
+  padding: $appMainPaddingMobile;
 }
 </style>

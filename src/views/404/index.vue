@@ -6,6 +6,9 @@
         <p>Page not found</p>
         <p>
           <router-link to="/">回到首页</router-link>
+          &nbsp;
+          <router-link to="/login">回到登录页</router-link>&nbsp;
+          <router-link to="/register">回到注册页</router-link>
         </p>
       </div>
     </div>

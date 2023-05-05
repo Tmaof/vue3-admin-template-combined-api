@@ -9,5 +9,6 @@ export default {
     return state.layout.isCollapseSideBar
   },
   screenInfo: (state) => state.layout.screenInfo,
+  isMobile: (state) => state.layout.screenInfo.isMobile,
   routes: (state) => state.routes.routes
 }

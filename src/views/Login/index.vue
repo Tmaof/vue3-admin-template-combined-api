@@ -13,6 +13,13 @@
         :model="loginForm"
         :rules="rules"
       >
+        <el-form-item label="选择测试用的账号">
+          <el-select v-model="loginForm.username">
+            <el-option value="admin" label="admin"></el-option>
+            <el-option value="admin-look" label="admin-look"></el-option>
+            <el-option value="maofu" label="maofu"></el-option>
+          </el-select>
+        </el-form-item>
         <el-form-item prop="username">
           <el-input
             placeholder="请输入用户名"
@@ -69,8 +76,8 @@ import { useRouter, useRoute } from 'vue-router'
 const store = useStore()
 // 表单
 const loginForm = ref({
-  username: '',
-  password: ''
+  username: 'admin',
+  password: '000000'
 })
 // 表单验证规则
 const rules = ref({

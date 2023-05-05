@@ -30,6 +30,7 @@ serve.interceptors.response.use(
     const { success, message, data } = response.data
     if (success) {
       // 直接返回数据
+      console.log('res:', response.data)
       return data
     } else {
       // 响应成功，但是后端业务逻辑处理失败

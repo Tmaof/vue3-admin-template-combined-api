@@ -1,0 +1,12 @@
+/**
+当为移动端尺寸时，在src\layout\index.vue文件中：
+<div class="layout-container" :class="{ 'mobile-container-global': ScreenInfo.isMobile }">
+会添加一个.mobile类
+
+该配置用于一些通用的全局移动端样式
+*/
+.mobile-container-global {
+  .el-button+.el-button {
+    margin-left: 0 !important;
+  }
+}
