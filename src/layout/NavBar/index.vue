@@ -134,6 +134,7 @@ function setIsCollSideBar(value) {
 .navbar-container-fixed {
   position: sticky;
   top: 0;
+  z-index: 999;
 }
 .navbar-container-mobile {
   .left {
