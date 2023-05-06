@@ -1,0 +1,16 @@
+{
+	"zh": {
+		"router.routes.567293-0": "客户管理",
+		"router.routes.567293-1": "权限管理",
+		"router.routes.567293-2": "员工列表",
+		"router.routes.567293-3": "角色列表",
+		"router.routes.567293-4": "权限列表"
+	},
+	"en": {
+		"router.routes.567293-0": "",
+		"router.routes.567293-1": "",
+		"router.routes.567293-2": "",
+		"router.routes.567293-3": "",
+		"router.routes.567293-4": ""
+	}
+}

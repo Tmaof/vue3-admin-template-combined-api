@@ -1,0 +1,18 @@
+{
+	"zh": {
+		"Login.index.808362-0": "欢迎登录",
+		"Login.index.808362-1": "请输入用户名",
+		"Login.index.808362-2": "请输入密码",
+		"Login.index.808362-3": "登录",
+		"Login.index.808362-4": "没有账号？去注册！",
+		"Login.index.808362-5": "登录成功！"
+	},
+	"en": {
+		"Login.index.808362-0": "",
+		"Login.index.808362-1": "",
+		"Login.index.808362-2": "",
+		"Login.index.808362-3": "",
+		"Login.index.808362-4": "",
+		"Login.index.808362-5": ""
+	}
+}

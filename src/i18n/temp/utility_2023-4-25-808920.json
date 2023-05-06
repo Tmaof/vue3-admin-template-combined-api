@@ -1,0 +1,8 @@
+{
+	"zh": {
+		"utility.storage.808362-0": "您的浏览器不支持：localStorage，或者您并未开启此功能。"
+	},
+	"en": {
+		"utility.storage.808362-0": ""
+	}
+}

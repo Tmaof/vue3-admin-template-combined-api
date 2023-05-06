@@ -1,5 +1,5 @@
 <template>
-  <div>客户管理</div>
+  <div>{{ $t('Client.index.808362-0') }}</div>
 </template>
 
 <script setup></script>

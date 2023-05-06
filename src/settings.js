@@ -1,8 +1,9 @@
+import i18n from '@/i18n'
 export default {
   /**
    * 页面标题
    */
-  pageTile: '后台管理',
+  pageTile: i18n.$t('src.settings.808362-0'),
 
   /**
    * 侧边栏
@@ -22,7 +23,8 @@ export default {
     // 侧边栏宽度
     initWidth: 200, // 初始宽度，填写整数，单位是px
     minDargWidth: 180, // 最小宽度
-    maxDargWidth: 250 // 最大宽度
+    maxDargWidth: 250, // 最大宽度
+    mobileCollapseToZero: true // 为移动端页面时，收缩侧边栏宽度到0
   },
 
   /**

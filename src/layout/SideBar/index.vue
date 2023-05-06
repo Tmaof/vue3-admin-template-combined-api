@@ -3,6 +3,10 @@
     :class="{
       'sidebar-container': true,
       'sidebar-container-mobile': $store.getters.screenInfo.isMobile,
+      'sidebar-container-collapse-toZero':
+        $store.getters.isCollapseSideBar &&
+        mobileCollapseToZero &&
+        $store.getters.screenInfo.isMobile,
       'sidebar-container-collapse': $store.getters.isCollapseSideBar
     }"
     :style="{
@@ -50,7 +54,8 @@ const {
   sideBarLogo = { isShow: false },
   minDargWidth,
   maxDargWidth,
-  initWidth
+  initWidth,
+  mobileCollapseToZero
 } = settings.sideBar
 const dargLineRef = ref({})
 const sideBarRef = ref({})
@@ -63,6 +68,7 @@ function addDargEvent() {
   function mousemove(e) {
     let temp = sideBarWidth.value
     temp += e.movementX
+    // 拖动结束，超过了允许宽度的最大，最小值
     if (temp < minDargWidth) {
       mouseup()
       setIsCollSideBar(true)
@@ -80,6 +86,7 @@ function addDargEvent() {
     document.removeEventListener('mouseup', mouseup)
     isDarging.value = false
   }
+
   function mousedown() {
     document.onselectstart = function () {
       return false
@@ -106,9 +113,11 @@ onMounted(() => {
   .main {
     flex-shrink: 1;
     flex-grow: 1;
+    width: 100%;
     .top-logo {
       display: flex;
       justify-content: center;
+      width: 100%;
       height: $narBarHeight;
       line-height: $narBarHeight;
       text-align: center;
@@ -148,10 +157,13 @@ onMounted(() => {
 .sidebar-container-collapse {
   width: 64px !important;
 }
-
+.sidebar-container-collapse-toZero {
+  width: 0 !important;
+}
 .sidebar-container-mobile {
   position: fixed;
   height: 100%;
   top: $narBarHeight - 1px;
+  z-index: 999;
 }
 </style>
