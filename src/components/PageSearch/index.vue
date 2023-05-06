@@ -1,6 +1,6 @@
 <template>
   <div class="page-seach-container" @click.stop>
-    <el-popover :visible="isShowRes" v-if="isSeach" width="auto">
+    <el-popover :visible="isShowRes" v-if="isSeach">
       <template #reference>
         <el-input
           ref="inputRef"
@@ -55,6 +55,8 @@ function onSeach() {
   nextTick(() => {
     inputRef.value.focus()
   })
+  // 点击页面其他部分时，也关闭搜索框
+  // 点击搜索框时，需要阻止事件冒泡
   document.addEventListener('click', onIptBlur)
 }
 // 关闭输入框
