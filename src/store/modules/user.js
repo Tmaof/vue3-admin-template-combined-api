@@ -45,11 +45,11 @@ export default {
             await dispatch('routes/computedUserRoutes', data.permission.menus, {
               root: true
             })
-            resolve()
+            resolve(true)
           })
-          .catch((error) => {
-            console.log(error)
-            reject(error)
+          .catch(() => {
+            // eslint-disable-next-line prefer-promise-reject-errors
+            reject(false)
           })
       })
     },

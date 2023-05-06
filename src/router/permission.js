@@ -41,9 +41,9 @@ export function useBeforeEach(router) {
         // 没有用户信息，代表用户刚刚访问本站
         else {
           // 用已有的token去获取用户信息，看token是否过期
-          await store.dispatch('user/getUserInfo')
+          const ok = await store.dispatch('user/getUserInfo')
 
-          if (store.getters.userInfo) {
+          if (ok) {
             // 没有过期，放行
             // 由于在导航守卫中添加了动态路由,所以需要重定向,而不是直接next()
             next(to.fullPath)
