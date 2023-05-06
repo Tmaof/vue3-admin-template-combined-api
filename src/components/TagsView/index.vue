@@ -69,6 +69,7 @@ function onCloseTheOtherTabs() {
 <style lang="scss" scoped>
 @import '@/style/index.scss';
 .tags-view-container {
+  height: $tagsVeiwHeight;
   padding: 0 10px;
   .tags-list {
     display: flex;
