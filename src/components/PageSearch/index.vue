@@ -1,6 +1,6 @@
 <template>
   <div class="page-seach-container" @click.stop>
-    <el-popover :visible="isShowRes" v-if="isSeach" width="auto">
+    <el-popover :visible="isShowRes" v-if="isSeach">
       <template #reference>
         <el-input
           ref="inputRef"
