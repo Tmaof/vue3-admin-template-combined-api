@@ -28,6 +28,7 @@
     "dexie": "^3.2.3",
     "element-plus": "^2.3.3",
     "file-saver": "^2.0.5",
+    "fuse.js": "^6.6.2",
     "md5": "^2.3.0",
     "mockjs-pro": "^1.0.4",
     "screenfull": "^6.0.2",

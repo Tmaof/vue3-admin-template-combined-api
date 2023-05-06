@@ -113,6 +113,7 @@ async function initUser() {
       avatar: '/favicon.ico'
     }
   ]
+  await db.users.clear()
   for (const item of defaultUserList) {
     await db.users.put(item)
   }
@@ -166,6 +167,7 @@ async function initRole() {
       id: 4
     }
   ]
+  await db.roles.clear()
   for (const role of defaultRoleList) {
     await db.roles.put(role)
   }
@@ -294,6 +296,7 @@ async function initPerm() {
       children: []
     }
   ]
+  await db.permission.clear()
   const list = await getPermissonList()
   list[0].children = defaultPermList
   await updatePermissionList(list)

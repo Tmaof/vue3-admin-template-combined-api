@@ -5,7 +5,7 @@
   >
     <SideBar class="sidebar-container"></SideBar>
     <div class="right-container">
-      <NavBar class="navbar-container"></NavBar>
+      <NavBar></NavBar>
       <AppMain
         class="appmain-container dark"
         @click="dealWithCollapse"

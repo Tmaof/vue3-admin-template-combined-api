@@ -20,31 +20,31 @@
       <!-- 表格 -->
       <el-table :data="userListInfo.list || []" border>
         <el-table-column type="index" label="序号"></el-table-column>
-        <el-table-column label="头像" resizable>
+        <el-table-column label="头像" >
           <template v-slot="{ row }">
             <el-avatar fit="contain" :src="row.avatar">
               <SvgIcon icon="my-user"></SvgIcon>
             </el-avatar>
           </template>
         </el-table-column>
-        <el-table-column label="用户名" resizable>
+        <el-table-column label="用户名" >
           <template v-slot="{ row }">
             {{ row.username }}
           </template>
         </el-table-column>
-        <el-table-column label="角色" resizable>
+        <el-table-column label="角色" >
           <template v-slot="{ row }">
             <el-tag v-for="item of row.role" :key="item.id">{{
               item.title
             }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="注册时间" resizable>
+        <el-table-column label="注册时间" >
           <template v-slot="{ row }">
             {{ $filters.dateFilter(row.openTime) }}
           </template>
         </el-table-column>
-        <el-table-column label="操作" resizable>
+        <el-table-column label="操作" >
           <template #default="{ row }">
             <el-button
               icon="Tools"

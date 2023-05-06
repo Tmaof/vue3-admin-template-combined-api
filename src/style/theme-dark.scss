@@ -92,6 +92,14 @@
 
   }
 
+    // TagsView
+    .tags-view-container {
+      border-top: 1px solid $tagsViewBorder-dark;
+      border-bottom: 1px solid $tagsViewBorder-dark;
+      background-color: $tagsViewBg-dark;
+    }
+
+
   // 主内容
   .appmain-container {
     background-color: $appMainBg-dark;

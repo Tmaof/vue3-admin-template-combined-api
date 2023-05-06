@@ -6,7 +6,7 @@
       'sidebar-container-collapse-toZero':
         $store.getters.isCollapseSideBar &&
         mobileCollapseToZero &&
-        $store.getters.isMobile,
+        $store.getters.screenInfo.isMobile,
       'sidebar-container-collapse': $store.getters.isCollapseSideBar
     }"
     :style="{
@@ -68,6 +68,7 @@ function addDargEvent() {
   function mousemove(e) {
     let temp = sideBarWidth.value
     temp += e.movementX
+    // 拖动结束，超过了允许宽度的最大，最小值
     if (temp < minDargWidth) {
       mouseup()
       setIsCollSideBar(true)
@@ -78,6 +79,7 @@ function addDargEvent() {
     }
   }
   function mouseup() {
+    // 拖动结束后再开放选中文字。
     setTimeout(() => {
       document.onselectstart = null
     }, 1000)
@@ -85,7 +87,9 @@ function addDargEvent() {
     document.removeEventListener('mouseup', mouseup)
     isDarging.value = false
   }
+
   function mousedown() {
+    // 在拖动过程中，禁止选中文字
     document.onselectstart = function () {
       return false
     }
@@ -106,6 +110,7 @@ onMounted(() => {
   display: flex;
   position: relative;
   flex-direction: row;
+  flex-shrink: 0;
   overflow: hidden;
 
   .main {
@@ -157,11 +162,13 @@ onMounted(() => {
 .sidebar-container-collapse-toZero {
   width: 0px !important;
 }
-
+.sidebar-container-collapse-toZero {
+  width: 0 !important;
+}
 .sidebar-container-mobile {
   position: fixed;
   height: 100%;
-  top: $narBarHeight - 1px;
+  top: $narBarHeight + $tagsVeiwHeight - 1px;
   z-index: 999;
 }
 </style>

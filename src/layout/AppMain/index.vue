@@ -2,12 +2,18 @@
   <div
     :class="{
       'appmain-container': true,
-      'appmain-margin-left-mobile':
-        $store.getters.screenInfo.isMobile && !mobileCollapseToZero,
-      'appmain-container-mobile': $store.getters.screenInfo.isMobile
+      'appmain-container-mobile': $store.getters.screenInfo.isMobile,
+      'appmain-container-margin-left-mobile':
+        $store.getters.screenInfo.isMobile && mobileCollapseToZero
     }"
   >
-    <router-view></router-view>
+    <router-view v-slot="{ Component, route }">
+      <transition mode="out-in" appear
+        ><keep-alive>
+          <component :is="Component" :key="route.path" />
+        </keep-alive>
+      </transition>
+    </router-view>
   </div>
 </template>
 
@@ -18,15 +24,29 @@ const { mobileCollapseToZero } = settings.sideBar
 
 <style lang="scss" scoped>
 @import '@/style/index.scss';
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.5s ease;
+}
+.v-leave-to,
+.v-enter-from {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+.v-leave-from,
+.v-enter-to {
+  transform: translateX(0px);
+}
+
 .appmain-container {
   min-height: 100vh;
   padding: $appMainPadding;
 }
-.appmain-margin-left-mobile {
-  margin-left: $sidebarCollapseWidth - 1px;
+.appmain-container-margin-left-mobile {
+  margin-left: 0px !important;
 }
-
 .appmain-container-mobile {
-  padding: $appMainPaddingMobile;
+  margin-left: 63px;
+  padding: $appMainPadding-mobile;
 }
 </style>
