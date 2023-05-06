@@ -6,27 +6,27 @@
           type="primary"
           @click="isShowAddRoleDia = true"
           v-permission="'add-role'"
-          >添加角色</el-button
+          >{{ $t('Role.index.017834-0') }}</el-button
         >
       </div>
       <el-table :data="roleList" border>
-        <el-table-column label="序号" type="index"></el-table-column>
-        <el-table-column label="角色名">
+        <el-table-column :label="$t('Role.index.017834-1')" type="index"></el-table-column>
+        <el-table-column :label="$t('Role.index.017834-2')">
           <template #default="{ row }">
             {{ row.title }}
           </template>
         </el-table-column>
-        <el-table-column label="描述">
+        <el-table-column :label="$t('Role.index.017834-3')">
           <template #default="{ row }">
             {{ row.describe }}
           </template></el-table-column
         >
-        <el-table-column label="权限">
+        <el-table-column :label="$t('Role.index.017834-4')">
           <template #default="{ row }">
             <el-tag v-for="(name, i) of row.names" :key="i">{{ name }}</el-tag>
           </template></el-table-column
         >
-        <el-table-column label="操作" resizable>
+        <el-table-column :label="$t('Role.index.017834-5')" resizable>
           <template #default="{ row }">
             <el-button
               icon="Tools"
@@ -35,7 +35,7 @@
               v-permission="'assign-perm'"
             >
             </el-button>
-            <el-popconfirm title="确定删除吗" @confirm="deleteRoleInfo(row.id)">
+            <el-popconfirm :title="$t('Role.index.017834-6')" @confirm="deleteRoleInfo(row.id)">
               <template #reference>
                 <el-button
                   icon="DeleteFilled"

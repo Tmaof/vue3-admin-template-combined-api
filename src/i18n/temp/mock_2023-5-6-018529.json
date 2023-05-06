@@ -1,0 +1,14 @@
+{
+	"zh": {
+		"mock.user-manage.017836-0": "部分员工用户名重复，未添加成功: \\n{0}",
+		"mock.user-manage.017836-1": "成功",
+		"mock.user-manage.017836-2": "员工不存在",
+		"mock.user-manage.017836-3": "数据格式不全"
+	},
+	"en": {
+		"mock.user-manage.017836-0": "",
+		"mock.user-manage.017836-1": "",
+		"mock.user-manage.017836-2": "",
+		"mock.user-manage.017836-3": ""
+	}
+}

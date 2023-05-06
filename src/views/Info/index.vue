@@ -2,13 +2,13 @@
   <div class="info-container">
     <el-card shadow="never">
       <el-form>
-        <el-form-item label="你可以点击右侧的重置按钮来重置数据">
+        <el-form-item :label="$t('Info.index.017834-0')">
           <el-button type="primary" @click="resetDb(true)" size="small"
-            >重置</el-button
+            >{{ $t('Info.index.017834-1') }}</el-button
           >
         </el-form-item>
         <el-form-item
-          label="当员工数据为空时，刷新页面会自动重置数据"
+          :label="$t('Info.index.017834-2')"
         ></el-form-item>
       </el-form>
     </el-card>

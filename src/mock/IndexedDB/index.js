@@ -1,3 +1,4 @@
+import i18n from '@/i18n'
 import Dexie from 'dexie'
 import md5 from 'md5'
 import { getPermissonList, updatePermissionList } from '../permission-list'
@@ -60,7 +61,7 @@ export async function resetDb(forcedInitialization) {
 {
 "id": "1333329957008228353",
 "pid": "1",
-"name": "权限管理",
+"name": i18n.t('IndexedDB.index.017836-6'),
 "code": "Acl",
 "type": 1,
 "children": []
@@ -78,7 +79,7 @@ async function initUser() {
       role: [
         {
           id: 2,
-          title: '管理员'
+          title: i18n.t('IndexedDB.index.017836-0')
         }
       ],
       openTime: '2023-05-04',
@@ -91,7 +92,7 @@ async function initUser() {
       role: [
         {
           id: 3,
-          title: '客户经理'
+          title: i18n.t('IndexedDB.index.017836-1')
         }
       ],
       openTime: '2023-05-04',
@@ -104,7 +105,7 @@ async function initUser() {
       role: [
         {
           id: 4,
-          title: '管理员-仅查看'
+          title: i18n.t('IndexedDB.index.017836-2')
         }
       ],
       openTime: '2023-05-04',
@@ -126,8 +127,8 @@ async function initUser() {
 async function initRole() {
   const defaultRoleList = [
     {
-      title: '管理员',
-      describe: '拥有所有权限',
+      title: i18n.t('IndexedDB.index.017836-0'),
+      describe: i18n.t('IndexedDB.index.017836-3'),
       permissions: [
         '1',
         '1683201242256',
@@ -148,14 +149,14 @@ async function initRole() {
       id: 2
     },
     {
-      title: '客户经理',
-      describe: '可查看客户管理',
+      title: i18n.t('IndexedDB.index.017836-1'),
+      describe: i18n.t('IndexedDB.index.017836-4'),
       permissions: ['1683201932454'],
       id: 3
     },
     {
-      title: '管理员-仅查看',
-      describe: '只有查看权限',
+      title: i18n.t('IndexedDB.index.017836-2'),
+      describe: i18n.t('IndexedDB.index.017836-5'),
       permissions: [
         '1',
         '1683201242256',
@@ -182,21 +183,21 @@ async function initPerm() {
     {
       id: '1683201242256',
       pid: '1',
-      name: '权限管理',
+      name: i18n.t('IndexedDB.index.017836-6'),
       code: 'acl',
       type: 1,
       children: [
         {
           id: '1683201972962',
           pid: '1683201242256',
-          name: '员工列表',
+          name: i18n.t('IndexedDB.index.017836-7'),
           code: 'user-list',
           type: 1,
           children: [
             {
               id: '1683281633240',
               pid: '1683201972962',
-              name: 'excel导入员工',
+              name: i18n.t('IndexedDB.index.017836-8'),
               code: 'excel-import',
               type: 2,
               children: []
@@ -204,7 +205,7 @@ async function initPerm() {
             {
               id: '1683281656214',
               pid: '1683201972962',
-              name: '删除员工',
+              name: i18n.t('IndexedDB.index.017836-9'),
               code: 'delete-user',
               type: 2,
               children: []
@@ -212,7 +213,7 @@ async function initPerm() {
             {
               id: '1683281699123',
               pid: '1683201972962',
-              name: '为员工分配角色',
+              name: i18n.t('IndexedDB.index.017836-10'),
               code: 'assign-role',
               type: 2,
               children: []
@@ -222,14 +223,14 @@ async function initPerm() {
         {
           id: '1683201995991',
           pid: '1683201242256',
-          name: '角色列表',
+          name: i18n.t('IndexedDB.index.017836-11'),
           code: 'role-list',
           type: 1,
           children: [
             {
               id: '1683281734858',
               pid: '1683201995991',
-              name: '添加角色',
+              name: i18n.t('IndexedDB.index.017836-12'),
               code: 'add-role',
               type: 2,
               children: []
@@ -237,7 +238,7 @@ async function initPerm() {
             {
               id: '1683281758700',
               pid: '1683201995991',
-              name: '删除角色',
+              name: i18n.t('IndexedDB.index.017836-13'),
               code: 'delete-role',
               type: 2,
               children: []
@@ -245,7 +246,7 @@ async function initPerm() {
             {
               id: '1683281786841',
               pid: '1683201995991',
-              name: '为角色分配权限',
+              name: i18n.t('IndexedDB.index.017836-14'),
               code: 'assign-perm',
               type: 2,
               children: []
@@ -255,14 +256,14 @@ async function initPerm() {
         {
           id: '1683202016584',
           pid: '1683201242256',
-          name: '权限列表',
+          name: i18n.t('IndexedDB.index.017836-15'),
           code: 'menu-list',
           type: 1,
           children: [
             {
               id: '1683281825373',
               pid: '1683202016584',
-              name: '添加根权限',
+              name: i18n.t('IndexedDB.index.017836-16'),
               code: 'add-root-perm',
               type: 2,
               children: []
@@ -270,7 +271,7 @@ async function initPerm() {
             {
               id: '1683281847403',
               pid: '1683202016584',
-              name: '添加子权限',
+              name: i18n.t('IndexedDB.index.017836-17'),
               code: 'add-children-perm',
               type: 2,
               children: []
@@ -278,7 +279,7 @@ async function initPerm() {
             {
               id: '1683281866794',
               pid: '1683202016584',
-              name: '删除权限',
+              name: i18n.t('IndexedDB.index.017836-18'),
               code: 'delete-perm',
               type: 2,
               children: []
@@ -290,7 +291,7 @@ async function initPerm() {
     {
       id: '1683201932454',
       pid: '1',
-      name: '客户管理',
+      name: i18n.t('IndexedDB.index.017836-19'),
       code: 'client-management',
       type: 1,
       children: []

@@ -1,3 +1,4 @@
+import i18n from '@/i18n'
 import Mock from 'mockjs-pro'
 import db from './IndexedDB/'
 import { getResBody, permission, getUrlParams } from './index'
@@ -10,7 +11,7 @@ Mock.mock('/api/permission/add', 'post', async (options) => {
   let { body } = options
   // 参数校验
   if (!(body.name && body.pid && body.code && body.type)) {
-    return getResBody(null, '参数不完整')
+    return getResBody(null, i18n.t('mock.permission-list.017836-0'))
   }
 
   // 添加id
@@ -33,7 +34,7 @@ Mock.mock('/api/permission/add', 'post', async (options) => {
   if (res) {
     return getResBody(null, 'ok', true)
   }
-  return getResBody(null, '添加失败')
+  return getResBody(null, i18n.t('mock.permission-list.017836-1'))
 })
 
 /**
@@ -55,7 +56,7 @@ Mock.mock(/\/permission\/detele/, 'get', async (options) => {
   const pid = getUrlParams(options.url, 'pid')
 
   if (!(id && pid)) {
-    return getResBody(null, '参数错误')
+    return getResBody(null, i18n.t('mock.permission-list.017836-2'))
   }
 
   // 若角色中有该权限（包括子权限），也会进行删除。
@@ -102,7 +103,7 @@ Mock.mock(/\/permission\/detele/, 'get', async (options) => {
         {
           id: '1',
           pid: '0',
-          name: '所有权限数据',
+          name: i18n.t('mock.permission-list.017836-3'),
           code: '',
           children: []
         }
@@ -121,7 +122,7 @@ export async function getPermissonList() {
         {
           id: '1',
           pid: '0',
-          name: '所有权限数据',
+          name: i18n.t('mock.permission-list.017836-3'),
           code: '',
           children: []
         }

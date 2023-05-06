@@ -1,0 +1,14 @@
+{
+	"zh": {
+		"mock.permission-list.017836-0": "参数不完整",
+		"mock.permission-list.017836-1": "添加失败",
+		"mock.permission-list.017836-2": "参数错误",
+		"mock.permission-list.017836-3": "所有权限数据"
+	},
+	"en": {
+		"mock.permission-list.017836-0": "",
+		"mock.permission-list.017836-1": "",
+		"mock.permission-list.017836-2": "",
+		"mock.permission-list.017836-3": ""
+	}
+}

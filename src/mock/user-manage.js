@@ -1,3 +1,4 @@
+import i18n from '@/i18n'
 // mock.js
 import Mock from 'mockjs-pro'
 import db from './IndexedDB/'
@@ -70,10 +71,10 @@ Mock.mock('/api/user-manage/batch/import', 'post', async (options) => {
   if (anExistingUserName.length) {
     return getResBody(
       null,
-      `部分员工用户名重复，未添加成功: \n${anExistingUserName}`
+      i18n.t('mock.user-manage.017836-0', [anExistingUserName])
     )
   } else {
-    return getResBody(null, '成功', true)
+    return getResBody(null, i18n.t('mock.user-manage.017836-1'), true)
   }
 })
 
@@ -88,7 +89,7 @@ Mock.mock(/\/api\/user-manage\/detele\//, 'get', async (options) => {
     db.users.delete(user.id)
     return getResBody(null, 'ok', true)
   } else {
-    return getResBody(null, '员工不存在')
+    return getResBody(null, i18n.t('mock.user-manage.017836-2'))
   }
 })
 
@@ -116,7 +117,7 @@ Mock.mock(/\/api\/user-manage\/role\//, 'get', async (options) => {
   if (user) {
     return getResBody({ role: user.role }, 'ok', true)
   }
-  return getResBody(null, '员工不存在')
+  return getResBody(null, i18n.t('mock.user-manage.017836-2'))
 })
 
 /**
@@ -128,7 +129,7 @@ Mock.mock(/\/user-manage\/update-role\//, 'post', async (options) => {
   const id = parseInt(url.match(/[0-9]*$/g)[0])
   for (const item of body) {
     if (!item.id || !item.title) {
-      return getResBody(null, '数据格式不全')
+      return getResBody(null, i18n.t('mock.user-manage.017836-3'))
     }
     item.title = item.title.trim()
     if (!item.describe) {
@@ -139,5 +140,5 @@ Mock.mock(/\/user-manage\/update-role\//, 'post', async (options) => {
   if (updated) {
     return getResBody(null, 'ok', true)
   }
-  return getResBody(null, '员工不存在')
+  return getResBody(null, i18n.t('mock.user-manage.017836-2'))
 })

@@ -2,28 +2,28 @@
   <div>
     <el-dialog
       v-model="isShow"
-      title="添加角色"
+      :title="$t('AddRole.index.017835-0')"
       @closed="resetInfo"
       :fullscreen="getters.isMobile"
     >
       <el-form ref="formRef" :model="form" :rules="rules" label-width="80px">
-        <el-form-item label="角色名" prop="title">
+        <el-form-item :label="$t('AddRole.index.017835-1')" prop="title">
           <el-input
-            placeholder="请填写角色名"
+            :placeholder="$t('AddRole.index.017835-2')"
             v-model.trim="form.title"
             @keydown.enter="addRoleInfo"
           ></el-input>
         </el-form-item>
-        <el-form-item label="描述">
+        <el-form-item :label="$t('AddRole.index.017835-3')">
           <el-input
-            placeholder="请填写描述"
+            :placeholder="$t('AddRole.index.017835-4')"
             v-model.trim="form.describe"
           ></el-input>
         </el-form-item>
       </el-form>
       <div class="right-btn-container">
         <el-button type="primary" @click="addRoleInfo" :loading="loading"
-          >添加
+          >{{ $t('AddRole.index.017835-5') }}
           <template #loading>
             <el-icon><Loading /></el-icon>
           </template>
@@ -34,6 +34,7 @@
 </template>
 
 <script setup>
+import i18n from '@/i18n'
 import { defineEmits, defineProps, computed, ref } from 'vue'
 import { addRole } from '@/api/role-manage'
 import { useStore } from 'vuex'
@@ -58,7 +59,7 @@ const form = ref({
   describe: ''
 })
 const rules = {
-  title: [{ required: true, message: '请输入角色名', trigger: 'blur' }]
+  title: [{ required: true, message: i18n.$t('AddRole.index.017835-6'), trigger: 'blur' }]
 }
 const formRef = ref()
 const loading = ref(false)

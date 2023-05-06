@@ -6,14 +6,14 @@
     }"
   >
     <div class="main">
-      <p class="title">欢迎登录</p>
+      <p class="title">{{ $t('Login.index.808362-0') }}</p>
       <el-form
         ref="loginFromRef"
         class="login-form"
         :model="loginForm"
         :rules="rules"
       >
-        <el-form-item label="选择测试用的账号">
+        <el-form-item :label="$t('Login.index.017834-0')">
           <el-select v-model="loginForm.username">
             <el-option value="admin" label="admin"></el-option>
             <el-option value="admin-look" label="admin-look"></el-option>
@@ -22,7 +22,7 @@
         </el-form-item>
         <el-form-item prop="username">
           <el-input
-            placeholder="请输入用户名"
+            :placeholder="$t('Login.index.808362-1')"
             v-model.trim="loginForm.username"
           >
             <template #prefix>
@@ -32,7 +32,7 @@
         </el-form-item>
         <el-form-item prop="password">
           <el-input
-            placeholder="请输入密码"
+            :placeholder="$t('Login.index.808362-2')"
             v-model.trim="loginForm.password"
             :type="isHidePwd ? 'password' : null"
             @keyup.enter="handleLogin"
@@ -55,12 +55,12 @@
         type="primary"
         @click="handleLogin"
       >
-        登录
+        {{ $t('Login.index.808362-3') }}
       </el-button>
       <div class="footer">
-        <router-link to="/register" class="go-register"
-          >没有账号？去注册！</router-link
-        >
+        <router-link to="/register" class="go-register">{{
+          $t('Login.index.808362-4')
+        }}</router-link>
       </div>
     </div>
   </div>
@@ -72,6 +72,7 @@ import { pwdValidator } from '@/validator'
 import { useStore } from 'vuex'
 import { ElMessage } from 'element-plus'
 import { useRouter, useRoute } from 'vue-router'
+import i18n from '@/i18n'
 // 状态管理
 const store = useStore()
 // 表单
@@ -81,7 +82,9 @@ const loginForm = ref({
 })
 // 表单验证规则
 const rules = ref({
-  username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+  username: [
+    { required: true, message: i18n.t('Login.index.808362-1'), trigger: 'blur' }
+  ],
   password: [
     {
       required: true,
@@ -110,7 +113,7 @@ function handleLogin() {
           router.push({
             path: route.query.redirect ? route.query.redirect : '/'
           })
-          ElMessage.success({ message: '登录成功！' })
+          ElMessage.success({ message: i18n.t('Login.index.808362-5') })
         })
         .finally(() => {
           isLoading.value = false

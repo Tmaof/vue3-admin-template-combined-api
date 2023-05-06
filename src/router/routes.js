@@ -1,3 +1,4 @@
+import i18n from '@/i18n'
 import Layout from '@/layout'
 
 export const publicRoutes = () => {
@@ -13,7 +14,7 @@ export const publicRoutes = () => {
       component: Layout,
       redirect: '/info/info',
       meta: {
-        title: '信息提示',
+        title: i18n.$t('router.routes.817884-0'),
         icon: 'my-info'
       },
       children: [
@@ -22,7 +23,7 @@ export const publicRoutes = () => {
           name: 'info',
           component: () => import('@/views/Info'),
           meta: {
-            title: '信息提示',
+            title: i18n.$t('router.routes.817884-0'),
             icon: 'my-info'
           }
         }
@@ -55,7 +56,7 @@ export const privateRoutes = () => {
           path: 'client',
           name: 'client-management',
           meta: {
-            title: '客户管理',
+            title: i18n.$t('router.routes.817884-1'),
             icon: 'my-user'
           },
           component: () => import('@/views/Client')
@@ -68,7 +69,7 @@ export const privateRoutes = () => {
       redirect: '/acl/user',
       component: Layout,
       meta: {
-        title: '权限管理',
+        title: i18n.$t('router.routes.817884-2'),
         icon: 'my-key'
       },
       children: [
@@ -77,7 +78,7 @@ export const privateRoutes = () => {
           name: 'user-list',
           component: () => import('@/views/Acl/User'),
           meta: {
-            title: '员工列表'
+            title: i18n.$t('router.routes.817884-3')
           }
         },
         {
@@ -85,7 +86,7 @@ export const privateRoutes = () => {
           name: 'role-list',
           component: () => import('@/views/Acl/Role'),
           meta: {
-            title: '角色列表'
+            title: i18n.$t('router.routes.817884-4')
           }
         },
         {
@@ -93,7 +94,7 @@ export const privateRoutes = () => {
           name: 'menu-list',
           component: () => import('@/views/Acl/Menu'),
           meta: {
-            title: '权限列表'
+            title: i18n.$t('router.routes.817884-5')
           }
         }
       ]

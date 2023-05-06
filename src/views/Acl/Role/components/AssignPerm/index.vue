@@ -3,7 +3,7 @@
     <el-dialog
       :fullscreen="getters.isMobile"
       v-model="isShow"
-      :title="`为${props.roleInfo.title || '角色'}分配权限`"
+      :title="$t('AssignPerm.index.017835-0', [props.roleInfo.title || '角色'])"
       @closed="resetInfo"
     >
       <div v-if="!isLoading">
@@ -19,7 +19,7 @@
           :default-expanded-keys="defaultCheckedIds"
         />
         <div class="right-btn-container">
-          <el-button type="primary" @click="onAssignPerm">保存</el-button>
+          <el-button type="primary" @click="onAssignPerm">{{ $t('AssignPerm.index.017835-1') }}</el-button>
         </div>
       </div>
       <div v-else class="loading-container">

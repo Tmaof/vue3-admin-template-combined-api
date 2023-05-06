@@ -1,3 +1,4 @@
+import i18n from '@/i18n'
 import './sys'
 import './user-manage'
 import './role-manage'
@@ -43,7 +44,7 @@ export function getUrlParams(url, name) {
 
 export function getResBody(
   data = null,
-  message = '失败',
+  message = i18n.t('mock.index.017836-0'),
   success = false,
   code = 10000
 ) {

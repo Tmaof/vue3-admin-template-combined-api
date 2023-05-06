@@ -1,0 +1,18 @@
+{
+	"zh": {
+		"router.routes.817884-0": "信息提示",
+		"router.routes.817884-1": "客户管理",
+		"router.routes.817884-2": "权限管理",
+		"router.routes.817884-3": "员工列表",
+		"router.routes.817884-4": "角色列表",
+		"router.routes.817884-5": "权限列表"
+	},
+	"en": {
+		"router.routes.817884-0": "",
+		"router.routes.817884-1": "",
+		"router.routes.817884-2": "",
+		"router.routes.817884-3": "",
+		"router.routes.817884-4": "",
+		"router.routes.817884-5": ""
+	}
+}

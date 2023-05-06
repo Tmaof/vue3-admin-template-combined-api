@@ -1,8 +1,9 @@
+import i18n from '@/i18n'
 export default {
   /**
    * 页面标题
    */
-  pageTile: '后台管理',
+  pageTile: i18n.$t('src.settings.808362-0'),
 
   /**
    * 侧边栏

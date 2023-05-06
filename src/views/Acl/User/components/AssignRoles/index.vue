@@ -3,7 +3,7 @@
     <el-dialog
       v-model="isShow"
       :fullscreen="getters.isMobile"
-      title="为员工分配角色"
+      :title="$t('AssignRoles.index.017835-0')"
       @closed="resetInfo"
     >
       <div v-if="beReady">
@@ -17,7 +17,7 @@
           >
         </el-checkbox-group>
         <div class="right-btn-container">
-          <el-button type="primary" @click="assignRoles">保存分配</el-button>
+          <el-button type="primary" @click="assignRoles">{{ $t('AssignRoles.index.017835-1') }}</el-button>
         </div>
       </div>
       <div v-else class="loading-container">

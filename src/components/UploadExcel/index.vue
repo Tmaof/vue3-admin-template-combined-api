@@ -18,22 +18,22 @@
         <el-icon class="el-icon--upload" v-else>
           <upload-filled />
         </el-icon>
-        <div class="el-upload__text">拖拽文件到此 或者 <em>点击上传</em></div>
+        <div class="el-upload__text">{{ $t('UploadExcel.index.017837-0') }} <em>{{ $t('UploadExcel.index.017837-1') }}</em></div>
       </template>
       <template #file="data">
         <el-card shadow="never">
           <div>
-            <el-text type="success">文件名:&nbsp;{{ data.file.name }}</el-text>
+            <el-text type="success">{{ $t('UploadExcel.index.017837-2') }}&nbsp;{{ data.file.name }}</el-text>
           </div>
           <div>
             <el-text type="success"
-              >文件大小:&nbsp;{{ parseInt(data.file.size / 1024) }}kb</el-text
+              >{{ $t('UploadExcel.index.017837-3') }}&nbsp;{{ parseInt(data.file.size / 1024) }}kb</el-text
             >
           </div>
         </el-card>
       </template>
       <template #tip>
-        <div class="el-upload__tip">文件必须是 .xlsx, .xls, .csv 格式</div>
+        <div class="el-upload__tip">{{ $t('UploadExcel.index.017837-4') }}</div>
       </template>
     </el-upload>
   </div>
@@ -61,7 +61,7 @@ async function beforeUpload(file) {
     isLoading.value = false
     return true
   } else {
-    ElMessage.warning('文件必须是 .xlsx, .xls, .csv 格式')
+    ElMessage.warning(this.$t('UploadExcel.index.017837-4'))
     return false
   }
 }

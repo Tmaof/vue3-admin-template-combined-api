@@ -6,28 +6,28 @@
   >
     <template #header>
       <div @click="showExcelInfo = true">
-        <el-icon title="查看excel格式"><InfoFilled /></el-icon>&nbsp;<el-text
+        <el-icon :title="$t('AddUserDialog.index.017835-0')"><InfoFilled /></el-icon>&nbsp;<el-text
           type="primary"
-          >查看excel格式</el-text
+          >{{ $t('AddUserDialog.index.017835-0') }}</el-text
         >
       </div>
       <el-dialog
         :model-value="showExcelInfo"
         @closed="showExcelInfo = false"
-        title="excel格式示例"
+        :title="$t('AddUserDialog.index.017835-1')"
         :fullscreen="getters.isMobile"
       >
         <img src="@/assets/img/user-excel.png" fit="contain" />
         <div class="text">
-          <el-text type="primary"> [姓名]</el-text> 不可重复，否则不会添加。
+          <el-text type="primary"> {{ $t('AddUserDialog.index.017835-2') }}</el-text> {{ $t('AddUserDialog.index.017835-3') }}
           <br />
-          <el-text type="primary"> [角色] </el-text>
-          可由中文逗号或者英文逗号分隔。角色名称如若不存在于角色列表中，则不会添加。
+          <el-text type="primary"> {{ $t('AddUserDialog.index.017835-4') }} </el-text>
+          {{ $t('AddUserDialog.index.017835-5') }}
           <br />
-          <el-text type="primary"> [开通时间]</el-text> 为可选。
+          <el-text type="primary"> {{ $t('AddUserDialog.index.017835-6') }}</el-text> {{ $t('AddUserDialog.index.017835-7') }}
           <br />
-          <el-text type="warning">注意：</el-text
-          >信息必须保存在第一张表格(工作簿)
+          <el-text type="warning">{{ $t('AddUserDialog.index.017835-8') }}</el-text
+          >{{ $t('AddUserDialog.index.017835-9') }}({{ $t('AddUserDialog.index.017835-10') }})
         </div>
       </el-dialog>
     </template>
@@ -38,7 +38,7 @@
         :reset="resetUpload"
       ></UploadExcel>
       <el-form :model="form" :rules="rules" ref="formRef">
-        <el-form-item label="设置默认的登录密码" prop="password">
+        <el-form-item :label="$t('AddUserDialog.index.017835-11')" prop="password">
           <el-input
             v-model="form.password"
             type="password"
@@ -48,13 +48,14 @@
         </el-form-item>
       </el-form>
       <div class="rigth-btn-container">
-        <el-button type="primary" @click="onAddUser">确定</el-button>
+        <el-button type="primary" @click="onAddUser">{{ $t('AddUserDialog.index.017835-12') }}</el-button>
       </div>
     </template>
   </el-dialog>
 </template>
 
 <script setup>
+import i18n from '@/i18n'
 import UploadExcel from '@/components/UploadExcel'
 import { pwdValidator } from '@/validator'
 import addUserByExcel from './hooks/addUserByExcel'
@@ -97,7 +98,7 @@ async function onAddUser() {
       })
     }
   } else {
-    ElMessage.warning('请选择文件')
+    ElMessage.warning(i18n.$t('AddUserDialog.index.017835-13'))
   }
 }
 function resetExcelUpload() {

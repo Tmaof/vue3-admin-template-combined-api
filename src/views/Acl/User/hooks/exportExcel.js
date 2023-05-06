@@ -1,3 +1,4 @@
+import i18n from '@/i18n'
 import { getUserListAll } from '@/api/user-manage'
 import { keys } from '../constant.js'
 import { dateFilter } from '@/filter'
@@ -12,7 +13,7 @@ export default async function exportExcel() {
     // excel 数据（二维数组结构）
     data,
     // 文件名称
-    filename: '员工列表',
+    filename: i18n.t('hooks.exportExcel.017834-0'),
     // 是否自动列宽
     autoWidth: true,
     // 文件类型

@@ -7,44 +7,44 @@
           type="primary"
           @click="isShowDiaLog = true"
           v-permission="'excel-import'"
-          >excel导入</el-button
+          >{{ $t('User.index.017834-0') }}</el-button
         >
         <el-button
           type="success"
           @click="exportExcelFile"
           loading-icon="Loading"
           :loading="exportExLoading"
-          >excel导出</el-button
+          >{{ $t('User.index.017834-1') }}</el-button
         >
       </div>
       <!-- 表格 -->
       <el-table :data="userListInfo.list || []" border>
-        <el-table-column type="index" label="序号"></el-table-column>
-        <el-table-column label="头像" >
+        <el-table-column type="index" :label="$t('User.index.017834-2')"></el-table-column>
+        <el-table-column :label="$t('User.index.017834-3')" >
           <template v-slot="{ row }">
             <el-avatar fit="contain" :src="row.avatar">
               <SvgIcon icon="my-user"></SvgIcon>
             </el-avatar>
           </template>
         </el-table-column>
-        <el-table-column label="用户名" >
+        <el-table-column :label="$t('User.index.017834-4')" >
           <template v-slot="{ row }">
             {{ row.username }}
           </template>
         </el-table-column>
-        <el-table-column label="角色" >
+        <el-table-column :label="$t('User.index.017834-5')" >
           <template v-slot="{ row }">
             <el-tag v-for="item of row.role" :key="item.id">{{
               item.title
             }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="注册时间" >
+        <el-table-column :label="$t('User.index.017834-6')" >
           <template v-slot="{ row }">
             {{ $filters.dateFilter(row.openTime) }}
           </template>
         </el-table-column>
-        <el-table-column label="操作" >
+        <el-table-column :label="$t('User.index.017834-7')" >
           <template #default="{ row }">
             <el-button
               icon="Tools"
@@ -52,7 +52,7 @@
               @click="assignRoles(row.id)"
               v-permission="'assign-role'"
             ></el-button>
-            <el-popconfirm @confirm="deleteUser(row.id)" title="确定删除吗">
+            <el-popconfirm @confirm="deleteUser(row.id)" :title="$t('User.index.017834-8')">
               <template #reference>
                 <el-button
                   icon="DeleteFilled"

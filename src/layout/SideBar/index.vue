@@ -116,9 +116,11 @@ onMounted(() => {
   .main {
     flex-shrink: 1;
     flex-grow: 1;
+    width: 100%;
     .top-logo {
       display: flex;
       justify-content: center;
+      width: 100%;
       height: $narBarHeight;
       line-height: $narBarHeight;
       text-align: center;

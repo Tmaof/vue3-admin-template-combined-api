@@ -5,40 +5,40 @@
         <el-button
           type="primary"
           v-permission="'add-root-perm'"
-          @click="onAddPerm({ id: '1', name: '您正在添加根权限' })"
-          >添加根权限</el-button
+          @click="onAddPerm({ id: '1', name: $t('Menu.index.925822-0') })"
+          >{{ $t('Menu.index.925822-1') }}</el-button
         >
       </div>
       <el-table :data="permissionList" row-key="id" border>
-        <el-table-column label="权限名">
+        <el-table-column :label="$t('Menu.index.925822-2')">
           <template #default="{ row }">{{ row.name }}</template>
         </el-table-column>
-        <el-table-column label="权限类型">
+        <el-table-column :label="$t('Menu.index.925822-3')">
           <template #default="{ row }">
             <el-tag :type="row.type === 1 ? '' : 'success'">{{
-              row.type === 1 ? '页面权限' : '按钮权限'
+              row.type === 1 ? $t('Menu.index.925822-4') : $t('Menu.index.925822-5')
             }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="权限代码"
+        <el-table-column :label="$t('Menu.index.925822-6')"
           ><template #default="{ row }">{{
             row.code
           }}</template></el-table-column
         >
-        <el-table-column label="操作">
+        <el-table-column :label="$t('Menu.index.925822-7')">
           <template #default="{ row }">
             <el-button
               type="primary"
               @click="onAddPerm(row)"
-              title="添加子权限"
+              :title="$t('Menu.index.925822-8')"
               icon="Plus"
               v-permission="'add-children-perm'"
             ></el-button>
-            <el-popconfirm @confirm="onDeletePerm(row)" title="确定删除吗">
+            <el-popconfirm @confirm="onDeletePerm(row)" :title="$t('Menu.index.925822-9')">
               <template #reference>
                 <el-button
                   type="danger"
-                  title="删除"
+                  :title="$t('Menu.index.925822-10')"
                   icon="Delete"
                   v-permission="'delete-perm'"
                 ></el-button

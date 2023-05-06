@@ -1,3 +1,4 @@
+import i18n from '@/i18n'
 // mock.js
 import Mock from 'mockjs-pro'
 import db from './IndexedDB/'
@@ -13,7 +14,7 @@ Mock.mock('/api/sys/register', 'post', (options) => {
     const { body } = options
     db.users.where({ username: body.username }).toArray((list) => {
       if (list.length) {
-        resolve(getResBody(null, '用户名已经存在'))
+        resolve(getResBody(null, i18n.t('mock.sys.017836-0')))
       } else {
         db.users
           .add(
@@ -24,7 +25,7 @@ Mock.mock('/api/sys/register', 'post', (options) => {
             })
           )
           .then(() => {
-            resolve(getResBody(null, '成功', true))
+            resolve(getResBody(null, i18n.t('mock.sys.017836-1'), true))
           })
           .catch((e) => {
             resolve(getResBody(null, e, false))
@@ -58,15 +59,15 @@ Mock.mock(
                     list[0].id
                   }`
                 },
-                '成功',
+                i18n.t('mock.sys.017836-1'),
                 true
               )
             )
           } else {
-            resolve(getResBody(null, '用户名，密码错误'))
+            resolve(getResBody(null, i18n.t('mock.sys.017836-2')))
           }
         } else {
-          resolve(getResBody(null, '用户未注册'))
+          resolve(getResBody(null, i18n.t('mock.sys.017836-3')))
         }
       })
     })
@@ -85,7 +86,7 @@ Mock.mock(/\bapi\/sys\/profile/, 'get', async (options) => {
   if (Date.now() - lastTime < overTime) {
     const user = await db.users.get(id)
     if (!user) {
-      return getResBody(null, '用户不存在')
+      return getResBody(null, i18n.t('mock.sys.017836-4'))
     }
 
     // 根据员工角色列表去找角色
@@ -116,7 +117,7 @@ Mock.mock(/\bapi\/sys\/profile/, 'get', async (options) => {
 
     return getResBody(user, 'ok', true)
   } else {
-    return getResBody(null, '认证过期')
+    return getResBody(null, i18n.t('mock.sys.017836-5'))
   }
 })
 
@@ -128,6 +129,6 @@ Mock.mock('/api/sys/logout', 'post', (options) => {
     success: true,
     code: 10000,
     data: {},
-    message: '执行成功'
+    message: i18n.t('mock.sys.808363-1')
   }
 })

@@ -1,3 +1,4 @@
+import i18n from '@/i18n'
 import Mock from 'mockjs-pro'
 import db from './IndexedDB/'
 import { getResBody, role } from './index'
@@ -12,10 +13,10 @@ Mock.mock('/api/role/add', 'post', async (options) => {
   body.title = body.title.trim()
   const res = await db.roles.where({ title: body.title }).toArray()
   if (res.length) {
-    return getResBody(null, '角色名重复，未添加成功。')
+    return getResBody(null, i18n.t('mock.role-manage.017836-0'))
   }
   await db.roles.add(Object.assign({}, role, body))
-  return getResBody(null, '成功', true)
+  return getResBody(null, i18n.t('mock.role-manage.017836-1'), true)
 })
 
 /**
@@ -43,7 +44,7 @@ Mock.mock(/\/role\/detele\//, 'get', async (options) => {
   try {
     id = parseInt(url.match(/[0-9]*$/g)[0])
   } catch {
-    return getResBody(null, '数据格式错误')
+    return getResBody(null, i18n.t('mock.role-manage.017836-2'))
   }
   await db.roles.delete(id)
   await deleteUserRole()
@@ -70,7 +71,7 @@ Mock.mock(/\/role\/permission\//, 'get', async (options) => {
   const id = parseInt(options.url.match(/[0-9]*$/g)[0])
   const role = await db.roles.get(id)
   if (!role) {
-    return getResBody(null, '角色不存在')
+    return getResBody(null, i18n.t('mock.role-manage.017836-3'))
   }
 
   const RolePermIds = role.permissions || []
@@ -102,12 +103,12 @@ Mock.mock('/api/role/distribute-permission', 'post', async (options) => {
   const { body } = options
   // 参数校验
   if (!(body.roleId && body.permissions && Array.isArray(body.permissions))) {
-    return getResBody(null, '参数格式不正确')
+    return getResBody(null, i18n.t('mock.role-manage.017836-4'))
   }
 
   const role = await db.roles.get(body.roleId)
   if (!role) {
-    return getResBody(null, '未找到该角色')
+    return getResBody(null, i18n.t('mock.role-manage.017836-5'))
   }
   role.permissions = body.permissions
   await db.roles.update(body.roleId, role)

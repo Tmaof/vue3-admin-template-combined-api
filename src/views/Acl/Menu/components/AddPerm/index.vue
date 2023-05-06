@@ -2,35 +2,36 @@
   <div>
     <el-dialog
       v-model="isShow"
-      title="添加权限"
+      :title="$t('AddPerm.index.017835-0')"
       @closed="resInfo"
       :fullscreen="getters.isMobile"
     >
       <el-form ref="formRef" :model="form" :rules="roles">
-        <el-form-item label="父权限">
+        <el-form-item :label="$t('AddPerm.index.017835-1')">
           <el-input disabled :model-value="props.parentInfo.name"></el-input>
         </el-form-item>
-        <el-form-item label="权限名" prop="name">
+        <el-form-item :label="$t('AddPerm.index.017835-2')" prop="name">
           <el-input v-model.trim="form.name"></el-input>
         </el-form-item>
-        <el-form-item label="权限代码" prop="code"
+        <el-form-item :label="$t('AddPerm.index.017835-3')" prop="code"
           ><el-input v-model.trim="form.code"></el-input
         ></el-form-item>
-        <el-form-item label="权限类型" prop="type">
+        <el-form-item :label="$t('AddPerm.index.017835-4')" prop="type">
           <el-select v-model="form.type">
-            <el-option label="页面权限" :value="1"></el-option>
-            <el-option label="按钮权限" :value="2"></el-option>
+            <el-option :label="$t('AddPerm.index.017835-5')" :value="1"></el-option>
+            <el-option :label="$t('AddPerm.index.017835-6')" :value="2"></el-option>
           </el-select>
         </el-form-item>
       </el-form>
       <div class="right-btn-container">
-        <el-button type="primary" @click="addPermInfo">添加</el-button>
+        <el-button type="primary" @click="addPermInfo">{{ $t('AddPerm.index.017835-7') }}</el-button>
       </div>
     </el-dialog>
   </div>
 </template>
 
 <script setup>
+import i18n from '@/i18n'
 import { ref, defineProps, defineEmits, computed } from 'vue'
 import { addPermission } from '@/api/permission-manage'
 import { useStore } from 'vuex'
@@ -61,13 +62,13 @@ const form = ref({
   type: ''
 })
 const roles = {
-  name: [{ required: true, message: '请填写权限名', trigger: 'blur' }],
-  code: [{ required: true, message: '请填写权限代码', trigger: 'blur' }],
+  name: [{ required: true, message: i18n.$t('AddPerm.index.017835-8'), trigger: 'blur' }],
+  code: [{ required: true, message: i18n.$t('AddPerm.index.017835-9'), trigger: 'blur' }],
   type: [
     {
       type: 'number',
       required: true,
-      message: '请选择类型',
+      message: i18n.$t('AddPerm.index.017835-10'),
       trigger: 'change'
     }
   ]
