@@ -21,8 +21,8 @@ const options = {
 function getDataList(routes) {
   function getList(routes, parentPath, resList) {
     for (const route of routes) {
+      let path = ''
       if (route.meta && route.meta.title && !/:/.test(route.path)) {
-        let path = ''
         if (parentPath && parentPath !== '/') {
           path = `${parentPath}/${route.path}`
         } else if (parentPath && parentPath === '/') {
@@ -31,10 +31,10 @@ function getDataList(routes) {
           path = route.path
         }
         resList.push({ path, title: route.meta.title })
+      }
 
-        if (route.children && route.children.length) {
-          getList(route.children, path, resList)
-        }
+      if (route.children && route.children.length) {
+        getList(route.children, path || route.path, resList)
       }
     }
     return resList
