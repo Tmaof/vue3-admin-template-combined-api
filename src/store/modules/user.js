@@ -49,7 +49,7 @@ export default {
           })
           .catch(() => {
             // eslint-disable-next-line prefer-promise-reject-errors
-            reject(false)
+            resolve(false)
           })
       })
     },
