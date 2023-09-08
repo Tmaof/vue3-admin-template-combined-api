@@ -1,6 +1,6 @@
 import i18n from '@/i18n'
 // mock.js
-import Mock from 'mockjs'
+import Mock from 'mockjs-pro'
 import { setItem, getItem } from '@/utility/storage'
 
 const KeyUserList = 'userList'
