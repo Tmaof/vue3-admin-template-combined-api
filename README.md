@@ -88,6 +88,7 @@ https://lark-video.oss-cn-hangzhou.aliyuncs.com/outputs/prod/yuque/2023/34576819
 
 <a name="SYczF"></a>
 ## 在线体验地址
+[vue3c-admin在线体验地址](http://vue3-admin.webproject.maofu123.top/)
 
 ---
 
