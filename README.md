@@ -5,21 +5,7 @@
 # 项目演示
 <a name="z4wHv"></a>
 ## 视频演示
-<a name="EYvOx"></a>
-### 概览
-https://lark-video.oss-cn-hangzhou.aliyuncs.com/outputs/prod/yuque/2023/34576819/wmv/1694087905309-55475a3b-0d56-4bb5-aa71-692f28d52c3a.mp4?OSSAccessKeyId=LTAI4GGhPJmQ4HWCmhDAn4F5&Expires=1694244040&Signature=Z3hoAXO3x8EVp5vahaJLAKOtOFM%3D
-
-<a name="TyXMG"></a>
-
-### RBAC-访问权限控制
-https://lark-video.oss-cn-hangzhou.aliyuncs.com/outputs/prod/yuque/2023/34576819/wmv/1694237431114-4146909f-d64d-4da7-bf3e-13819eb07c7b.mp4?OSSAccessKeyId=LTAI4GGhPJmQ4HWCmhDAn4F5&Expires=1694244726&Signature=nd2%2Fl6lQMcCjP9yALUnt2GZZwIs%3D
-
-
-
- https://lark-video.oss-cn-hangzhou.aliyuncs.com/outputs/prod/yuque/2023/34576819/wmv/1694089929549-74c348b3-fcac-41ea-856d-a64e32286abd.mp4?OSSAccessKeyId=LTAI4GGhPJmQ4HWCmhDAn4F5&Expires=1694244040&Signature=MlGG9iQ0TYO1OjVUItnCDao6ZL0%3D 
-
-<a name="mSXeM"></a>
-
+https://www.bilibili.com/video/BV1Zh4y1A7nG/
 ## 图片预览
 <a name="Xo9yK"></a>
 ### PC端
