@@ -166,7 +166,6 @@ onMounted(() => {
 .sidebar-container-mobile {
   position: fixed;
   height: 100%;
-  top: $narBarHeight + $tagsVeiwHeight - 1px;
-  z-index: 999;
+  z-index: 999999;
 }
 </style>
