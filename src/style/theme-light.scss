@@ -95,6 +95,19 @@
     border-top: 1px solid $tagsViewBorder;
     border-bottom: 1px solid $tagsViewBorder;
     background-color: $tagsViewBg;
+
+    // 右键菜单栏
+    .content-menu-container {
+      .el-card {
+        box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+
+        ul>li {
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
+    }
   }
 
   // 主内容

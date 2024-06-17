@@ -1,17 +1,33 @@
 <template>
   <div class="content-menu-container" :style="style" v-show="visble">
-    <el-card :body-style="{ padding: '10px 0' }" shadow="never">
+    <el-card body-class="el-card" :body-style="{ padding: '10px 0' }">
       <ul>
-        <li @click="this.$emit('refreshThePage')">{{ $t('ContextMenu.index.322055-0') }}</li>
-        <li @click="this.$emit('closeTheRightTabs')">{{ $t('ContextMenu.index.322055-1') }}</li>
-        <li @click="this.$emit('closeTheOtherTabs')">{{ $t('ContextMenu.index.322055-2') }}</li>
+        <li @click="emitEvent('refreshThePage')">
+          <SvgIcon icon="my-shuaxin"></SvgIcon
+          ><span>{{ $t('ContextMenu.index.322055-0') }}</span>
+        </li>
+        <li @click="emitEvent('closeTheRightTabs')">
+          <SvgIcon icon="my-toright"></SvgIcon
+          ><span>{{ $t('ContextMenu.index.322055-1') }}</span>
+        </li>
+        <li @click="emitEvent('closeTheOtherTabs')">
+          <SvgIcon icon="my-guanbi"></SvgIcon
+          ><span>{{ $t('ContextMenu.index.322055-2') }}</span>
+        </li>
       </ul>
     </el-card>
   </div>
 </template>
 <script setup>
-import { computed, defineProps } from 'vue'
-
+import { computed, defineProps, defineEmits } from 'vue'
+const emit = defineEmits([
+  'refreshThePage',
+  'closeTheRightTabs',
+  'closeTheOtherTabs'
+])
+function emitEvent(name) {
+  emit(name)
+}
 const props = defineProps({
   visble: {
     required: true,
@@ -37,13 +53,18 @@ const style = computed(() => {
 .content-menu-container {
   display: block;
   position: fixed;
+  .el-card {
+    border-radius: 10px;
+    ul > li {
+      display: flex;
+      justify-content: flex-start;
+      padding: 5px 15px;
+      cursor: default;
+      font-size: small;
 
-  ul > li {
-    padding: 5px 30px;
-    cursor: default;
-    font-size: small;
-    &:hover {
-      background-color: rgba(176, 173, 173, 0.15);
+      span {
+        margin-left: 5px;
+      }
     }
   }
 }

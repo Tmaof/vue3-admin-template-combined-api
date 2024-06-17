@@ -10,6 +10,7 @@
           :key="route.path"
           @close="onCloseTag(route)"
           @contextmenu.stop.prevent="onContextMenu($event, route)"
+          :type="vueRoute.path === route.path ? '' : 'info'"
         >
           <router-link :to="route.path">{{ route.title }}</router-link>
         </el-tag>
@@ -35,8 +36,8 @@ const router = useRouter()
 const isShowCm = ref(false)
 const cmTop = ref('0')
 const cmLeft = ref('0')
-const route = useRoute()
-const routeList = getTagsList(route)
+const vueRoute = useRoute()
+const routeList = getTagsList(vueRoute)
 let valueRoute = null
 function onCloseTag(route) {
   routeList.value.splice(routeList.value.indexOf(route), 1)
@@ -59,11 +60,13 @@ async function onRefreshThePage() {
 function onCloseTheRightTabs() {
   const index = routeList.value.indexOf(valueRoute)
   routeList.value.splice(index + 1)
+  router.push(valueRoute.path)
 }
 function onCloseTheOtherTabs() {
   const index = routeList.value.indexOf(valueRoute)
   routeList.value.splice(index + 1)
   routeList.value.splice(0, index)
+  router.push(valueRoute.path)
 }
 </script>
 <style lang="scss" scoped>
