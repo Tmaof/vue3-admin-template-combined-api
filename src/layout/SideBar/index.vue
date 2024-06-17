@@ -6,7 +6,7 @@
       'sidebar-container-collapse-toZero':
         $store.getters.isCollapseSideBar &&
         mobileCollapseToZero &&
-        $store.getters.screenInfo.isMobile,
+        $store.getters.isMobile,
       'sidebar-container-collapse': $store.getters.isCollapseSideBar
     }"
     :style="{
@@ -168,7 +168,6 @@ onMounted(() => {
 .sidebar-container-mobile {
   position: fixed;
   height: 100%;
-  top: $narBarHeight + $tagsVeiwHeight - 1px;
-  z-index: 999;
+  z-index: 999999;
 }
 </style>
