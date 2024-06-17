@@ -8,5 +8,6 @@ export default {
   isCollapseSideBar(state) {
     return state.layout.isCollapseSideBar
   },
-  screenInfo: (state) => state.layout.screenInfo
+  screenInfo: (state) => state.layout.screenInfo,
+  isMobile: (state) => state.layout.screenInfo.isMobile
 }
