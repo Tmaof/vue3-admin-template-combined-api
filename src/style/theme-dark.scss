@@ -3,6 +3,7 @@
 会根据用户选择来在html标签上切换theme-light 与 theme-dark 这两个类
 */
 .theme-dark {
+  color: $text-dark;
 
   // 侧边栏
   .sidebar-container {
@@ -92,12 +93,25 @@
 
   }
 
-    // TagsView
-    .tags-view-container {
-      border-top: 1px solid $tagsViewBorder-dark;
-      border-bottom: 1px solid $tagsViewBorder-dark;
-      background-color: $tagsViewBg-dark;
+  // TagsView
+  .tags-view-container {
+    border-top: 1px solid $tagsViewBorder-dark;
+    border-bottom: 1px solid $tagsViewBorder-dark;
+    background-color: $tagsViewBg-dark;
+    color: $tagsViewText-dark;
+    // 右键菜单栏
+    .content-menu-container {
+      .el-card {
+        box-shadow: 0 3px 7px rgba(130, 130, 130, 0.3);
+
+        ul>li {
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+          }
+        }
+      }
     }
+  }
 
 
   // 主内容
