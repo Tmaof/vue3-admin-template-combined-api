@@ -17,7 +17,11 @@
     ></SidebarItem>
   </el-sub-menu>
   <!-- 没有子路由 -->
-  <el-menu-item v-if="isShow && !isHaveChild" :index="currentPath">
+  <el-menu-item
+    v-if="isShow && !isHaveChild"
+    :index="currentPath"
+    @click="setIsCollSideBar"
+  >
     <SvgIcon
       v-if="props.route.meta.icon"
       :icon="props.route.meta.icon"
@@ -27,8 +31,11 @@
 </template>
 
 <script setup>
-import { defineProps, computed, onMounted } from 'vue'
 import { getI18nValue } from '@/i18n'
+import { defineProps, computed } from 'vue'
+import { useStore } from 'vuex'
+const store = useStore()
+
 const props = defineProps({
   route: {
     type: Object,
@@ -54,7 +61,13 @@ const currentPath = computed(() =>
     ? `${props.parentPath}/${props.route.path}`
     : `${props.route.path}`
 )
-onMounted(() => {})
+
+// 移动端：点击菜单项时关闭侧边栏，关闭蒙层
+function setIsCollSideBar() {
+  if (store.getters.isMobile) {
+    store.commit('layout/SET_isCollapseSideBar', true)
+  }
+}
 </script>
 
 <style scoped lang="scss">
