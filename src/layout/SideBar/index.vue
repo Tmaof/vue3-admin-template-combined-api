@@ -157,11 +157,12 @@ onMounted(() => {
 .sidebar-container-collapse-toZero {
   width: 0px !important;
 }
-
+.sidebar-container-collapse-toZero {
+  width: 0 !important;
+}
 .sidebar-container-mobile {
   position: fixed;
   height: 100%;
-  top: $narBarHeight - 1px;
-  z-index: 999;
+  z-index: 999999;
 }
 </style>
