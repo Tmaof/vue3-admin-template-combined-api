@@ -3,6 +3,10 @@
     :class="{
       'sidebar-container': true,
       'sidebar-container-mobile': $store.getters.screenInfo.isMobile,
+      'sidebar-container-collapse-toZero':
+        $store.getters.isCollapseSideBar &&
+        mobileCollapseToZero &&
+        $store.getters.screenInfo.isMobile,
       'sidebar-container-collapse': $store.getters.isCollapseSideBar
     }"
     :style="{
@@ -50,7 +54,8 @@ const {
   sideBarLogo = { isShow: false },
   minDargWidth,
   maxDargWidth,
-  initWidth
+  initWidth,
+  mobileCollapseToZero
 } = settings.sideBar
 const dargLineRef = ref({})
 const sideBarRef = ref({})
@@ -148,10 +153,12 @@ onMounted(() => {
 .sidebar-container-collapse {
   width: 64px !important;
 }
-
+.sidebar-container-collapse-toZero {
+  width: 0 !important;
+}
 .sidebar-container-mobile {
   position: fixed;
   height: 100%;
-  top: $narBarHeight - 1px;
+  z-index: 999999;
 }
 </style>
