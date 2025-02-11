@@ -10,8 +10,6 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue' // ElementPlus 的图标
 import 'element-plus/theme-chalk/dark/css-vars.css' // 暗夜模式
-// 使用mock模拟数据
-import '@/mock'
 // scss
 import '@/style/index.scss'
 // 打包svg图标到style标签
