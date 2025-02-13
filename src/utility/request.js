@@ -12,7 +12,7 @@ serve.interceptors.request.use(
   (config) => {
     // 如果有token，则在请求头中进行携带,方便进行用户鉴权
     if (store.getters.token) {
-      config.headers.Authorization = store.getters.token
+      config.headers.Authorization = 'Bearer ' + store.getters.token
     }
     return config
   },

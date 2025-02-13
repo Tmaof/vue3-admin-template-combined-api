@@ -21,5 +21,16 @@ module.exports = defineConfig({
         symbolId: 'icon-my-[name]'
       })
       .end()
+  },
+  devServer: {
+    proxy: {
+      '/api/v1': {
+        target: 'http://127.0.0.1:3005', // 目标服务器地址
+        changeOrigin: true // 是否改变请求源
+        // pathRewrite: {
+        //   '^/api/v1': '' // 路径重写，将 /api/v1 替换为空
+        // }
+      }
+    }
   }
 })

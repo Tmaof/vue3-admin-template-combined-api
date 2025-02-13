@@ -1,4 +1,3 @@
-import md5 from 'md5'
 import { addUserBatch } from '@/api/user-manage'
 import { keys } from '../../../constant'
 
@@ -27,7 +26,6 @@ export default async function addUserByExcel(excelData, password) {
         obj[keys[key]] = info[key]
       }
     })
-    obj.password = md5(password)
     dataList.push(obj)
   }
   // console.log(dataList)

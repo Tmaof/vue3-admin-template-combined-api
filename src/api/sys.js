@@ -1,6 +1,4 @@
 import request from '@/utility/request'
-import store from '@/store'
-import md5 from 'md5'
 import { isRef } from 'vue'
 
 /**
@@ -9,19 +7,14 @@ import { isRef } from 'vue'
  * @returns Promise
  */
 export function register(data) {
-  const md5Data = { username: '', password: '' }
+  // 解包ref对象
   if (isRef(data)) {
-    md5Data.username = data.value.username
-
-    md5Data.password = md5(data.value.password)
-  } else {
-    md5Data.username = data.username
-    md5Data.password = md5(data.password)
+    data = data.value
   }
   return request({
-    url: '/sys/register',
+    url: '/auth/signup',
     method: 'post',
-    data: md5Data
+    data
   })
 }
 
@@ -31,19 +24,14 @@ export function register(data) {
  * @returns Promise
  */
 export function login(data) {
-  const md5Data = { username: '', password: '' }
+  // 解包ref对象
   if (isRef(data)) {
-    md5Data.username = data.value.username
-
-    md5Data.password = md5(data.value.password)
-  } else {
-    md5Data.username = data.username
-    md5Data.password = md5(data.password)
+    data = data.value
   }
   return request({
-    url: '/sys/login',
+    url: '/auth/signin',
     method: 'post',
-    data: md5Data
+    data
   })
 }
 
@@ -53,9 +41,8 @@ export function login(data) {
  */
 export function getUserInfo() {
   return request({
-    url: '/sys/profile',
-    method: 'get',
-    params: { token: store.getters.token }
+    url: '/user/profile',
+    method: 'get'
   })
 }
 
