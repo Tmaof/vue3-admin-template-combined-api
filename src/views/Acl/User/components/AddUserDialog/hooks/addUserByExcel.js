@@ -18,7 +18,9 @@ export default async function addUserByExcel(excelData, password) {
    */
   const dataList = []
   for (const info of excelData.results) {
-    const obj = {}
+    const obj = {
+      password
+    }
     Object.keys(info).forEach((key) => {
       if (keys[key] === 'openTime') {
         obj[keys[key]] = formatDate(info[key])

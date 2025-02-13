@@ -8,7 +8,7 @@ import request from '@/utility/request'
  */
 export function getUserList(page, size) {
   return request({
-    url: '/user-manage/list',
+    url: '/user/paging',
     method: 'get',
     params: { page, size }
   })
@@ -20,7 +20,7 @@ export function getUserList(page, size) {
  * @returns
  */
 export function addUserBatch(data) {
-  return request({ url: '/user-manage/batch/import', method: 'post', data })
+  return request({ url: '/user/add/batch', method: 'post', data: { payload: data } })
 }
 
 /**
@@ -29,21 +29,21 @@ export function addUserBatch(data) {
  * @returns
  */
 export function deleteUserById(id) {
-  return request({ url: `/user-manage/detele/${id}`, method: 'get' })
+  return request({ url: `/user/${id}`, method: 'delete' })
 }
 
 /**
  * 获取所有员工列表
  */
 export function getUserListAll() {
-  return request({ url: '/user-manage/all-list', method: 'get' })
+  return request({ url: '/user/batch/excel', method: 'get' })
 }
 
 /**
  * 获取指定员工的角色
  */
 export function getUserRole(userId) {
-  return request({ url: `/user-manage/role/${userId}`, method: 'get' })
+  return request({ url: `/user/role/${userId}`, method: 'get' })
 }
 
 /**
@@ -52,8 +52,11 @@ export function getUserRole(userId) {
 
 export function assignRolesToUser(id, data) {
   return request({
-    url: `/user-manage/update-role/${id}`,
+    url: '/user/update/role',
     method: 'post',
-    data
+    data: {
+      userId: id,
+      payload: data
+    }
   })
 }

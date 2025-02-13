@@ -13,7 +13,7 @@
             :key="i"
             :label="role"
             :checked="role.checked"
-            >{{ role.title }}</el-checkbox
+            >{{ role.name }}</el-checkbox
           >
         </el-checkbox-group>
         <div class="right-btn-container">

@@ -35,7 +35,7 @@
         <el-table-column :label="$t('User.index.017834-5')" >
           <template v-slot="{ row }">
             <el-tag v-for="item of row.role" :key="item.id">{{
-              item.title
+              item.name
             }}</el-tag>
           </template>
         </el-table-column>
