@@ -4,8 +4,8 @@
       <div class="head">
         <el-button
           type="primary"
-          v-permission="'add-root-perm'"
-          @click="onAddPerm({ id: '1', name: $t('Menu.index.925822-0') })"
+          v-permission="'add-perm'"
+          @click="onAddPerm({ id: undefined, name: $t('Menu.index.925822-0') })"
           >{{ $t('Menu.index.925822-1') }}</el-button
         >
       </div>
@@ -32,7 +32,7 @@
               @click="onAddPerm(row)"
               :title="$t('Menu.index.925822-8')"
               icon="Plus"
-              v-permission="'add-children-perm'"
+              v-permission="'add-perm'"
             ></el-button>
             <el-popconfirm @confirm="onDeletePerm(row)" :title="$t('Menu.index.925822-9')">
               <template #reference>
@@ -60,9 +60,9 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import AddPerm from './components/AddPerm'
-import { getPermissionList, deletePermssion } from '@/api/permission-manage'
+import { getPermissionList, deletePermission } from '@/api/permission-manage'
 const isShowAddPerm = ref(false)
-const parentInfo = ref({ id: '1', name: '' })
+const parentInfo = ref({ id: undefined, name: '' })
 const permissionList = ref()
 /**
  * 添加权限
@@ -84,7 +84,7 @@ async function getPermissionListInfo() {
  * 删除权限
  */
 async function onDeletePerm(perm) {
-  deletePermssion(perm).then(() => {
+  deletePermission(perm.id).then(() => {
     getPermissionListInfo()
   })
 }
