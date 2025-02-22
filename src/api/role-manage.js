@@ -19,7 +19,7 @@ export function addRole(data) {
  * 删除角色
  */
 export function deleteRole(id) {
-  return request({ url: `/role/detele/${id}`, method: 'get' })
+  return request({ url: `/role/${id}`, method: 'delete' })
 }
 
 /**
@@ -32,6 +32,6 @@ export function getRolePermission(id) {
 /**
  * 为角色分配权限
  */
-export function assignPermssion(data) {
-  return request({ url: '/role/distribute-permission', method: 'post', data })
+export function assignPermission(data) {
+  return request({ url: '/role/update/permission', method: 'post', data })
 }

@@ -3,7 +3,7 @@
     <el-dialog
       :fullscreen="getters.isMobile"
       v-model="isShow"
-      :title="$t('AssignPerm.index.017835-0', [props.roleInfo.title || '角色'])"
+      :title="$t('AssignPerm.index.017835-0', [props.roleInfo.name || '角色'])"
       @closed="resetInfo"
     >
       <div v-if="!isLoading">
@@ -30,7 +30,7 @@
 </template>
 
 <script setup>
-import { getRolePermission, assignPermssion } from '@/api/role-manage'
+import { getRolePermission, assignPermission } from '@/api/role-manage'
 import { ref, defineProps, computed, defineEmits, watch } from 'vue'
 import { useStore } from 'vuex'
 const { getters } = useStore()
@@ -85,7 +85,7 @@ async function getPermListInfo(id) {
  */
 async function onAssignPerm() {
   const list = elTreeRef.value.getCheckedKeys()
-  assignPermssion({ roleId: props.roleInfo.id, permissions: list }).then(() => {
+  assignPermission({ roleId: props.roleInfo.id, permissionIdList: list }).then(() => {
     isShow.value = false
     emit('complete')
   })

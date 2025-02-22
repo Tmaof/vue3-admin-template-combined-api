@@ -13,7 +13,7 @@
         <el-table-column :label="$t('Role.index.017834-1')" type="index"></el-table-column>
         <el-table-column :label="$t('Role.index.017834-2')">
           <template #default="{ row }">
-            {{ row.title }}
+            {{ row.name }}
           </template>
         </el-table-column>
         <el-table-column :label="$t('Role.index.017834-3')">
