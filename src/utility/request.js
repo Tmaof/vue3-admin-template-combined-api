@@ -41,7 +41,8 @@ serve.interceptors.response.use(
   (error) => {
     // 超出 2xx 范围的状态码都会触发该函数。
     // 对响应错误做点什么
-    ElMessage.error({ message: error.message })
+    const { message } = error.response.data
+    ElMessage.error({ message: message || error.message })
     return Promise.reject(error)
   }
 )

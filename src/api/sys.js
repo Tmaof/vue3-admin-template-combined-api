@@ -50,5 +50,5 @@ export function getUserInfo() {
  * 退出登录
  */
 export function logout() {
-  return request({ url: '/sys/logout', method: 'post' })
+  return request({ url: '/auth/logout', method: 'post' })
 }
