@@ -63,6 +63,7 @@ export const privateRoutes = () => {
         }
       ]
     },
+    // 权限管理
     {
       path: '/acl',
       name: 'acl',
@@ -98,6 +99,36 @@ export const privateRoutes = () => {
           }
         }
       ]
+    },
+    // 日志管理
+    {
+      path: '/log',
+      name: 'log-management',
+      component: Layout,
+      redirect: '/log/user',
+      meta: {
+        title: '日志管理',
+        icon: 'my-log'
+      },
+      children: [
+        {
+          path: 'client',
+          name: 'client-log',
+          component: () => import('@/views/Log/Client'),
+          meta: {
+            title: '客户日志'
+          }
+        },
+        {
+          path: 'user',
+          name: 'user-log',
+          component: () => import('@/views/Log/User'),
+          meta: {
+            title: '用户日志'
+          }
+        }
+      ]
+
     }
   ]
 }
