@@ -34,7 +34,7 @@ function storageAvailable(type) {
 
 export function setItem(key, value) {
   if (!storageAvailable('localStorage')) {
-    ElMessage.warning(i18n.t('utility.storage.808362-0'))
+    ElMessage.warning(i18n.$t('utility.storage.808362-0'))
     return
   }
 

@@ -276,6 +276,9 @@
       "808363-0": "User authentication has expired, please log in again! thank you"
     },
     "routes": {
+      "611347-0": "Log management",
+      "611347-1": "Customer log",
+      "611347-2": "User Log",
       "808363-0": "home page",
       "808363-1": "customer management",
       "808363-2": "Permission management",

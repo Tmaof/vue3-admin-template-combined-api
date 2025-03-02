@@ -107,7 +107,7 @@ export const privateRoutes = () => {
       component: Layout,
       redirect: '/log/user',
       meta: {
-        title: '日志管理',
+        title: i18n.$t('router.routes.611347-0'),
         icon: 'my-log'
       },
       children: [
@@ -116,7 +116,7 @@ export const privateRoutes = () => {
           name: 'client-log',
           component: () => import('@/views/Log/Client'),
           meta: {
-            title: '客户日志'
+            title: i18n.$t('router.routes.611347-1')
           }
         },
         {
@@ -124,7 +124,7 @@ export const privateRoutes = () => {
           name: 'user-log',
           component: () => import('@/views/Log/User'),
           meta: {
-            title: '用户日志'
+            title: i18n.$t('router.routes.611347-2')
           }
         }
       ]

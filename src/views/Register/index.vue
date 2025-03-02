@@ -76,7 +76,7 @@ const rules = ref({
   username: [
     {
       required: true,
-      message: i18n.t('Register.index.808361-1'),
+      message: i18n.$t('Register.index.808361-1'),
       trigger: 'blur'
     }
   ],
@@ -102,7 +102,7 @@ function handleregister() {
       // 发请求
       register(registerForm)
         .then(() => {
-          ElMessage.success({ message: i18n.t('Register.index.808361-5') })
+          ElMessage.success({ message: i18n.$t('Register.index.808361-5') })
           router.push('/login')
         })
         .finally(() => {

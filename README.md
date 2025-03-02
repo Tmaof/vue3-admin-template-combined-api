@@ -639,7 +639,7 @@ export default {
           } else {
             // token过期，需要用户重新登录
             // 先清除token，才能跳转登录页
-            ElMessage.warning(i18n.t('router.permission.808363-0'))
+            ElMessage.warning(i18n.$t('router.permission.808363-0'))
             store.commit('user/SET_token', '')
             next('/login')
           }
@@ -670,7 +670,7 @@ function handleLogin() {
           router.push({
             path: route.query.redirect ? route.query.redirect : '/'
           })
-          ElMessage.success({ message: i18n.t('Login.index.808362-5') })
+          ElMessage.success({ message: i18n.$t('Login.index.808362-5') })
         })
         .finally(() => {
           isLoading.value = false

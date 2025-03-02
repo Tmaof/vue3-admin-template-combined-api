@@ -83,7 +83,7 @@ const loginForm = ref({
 // 表单验证规则
 const rules = ref({
   username: [
-    { required: true, message: i18n.t('Login.index.808362-1'), trigger: 'blur' }
+    { required: true, message: i18n.$t('Login.index.808362-1'), trigger: 'blur' }
   ],
   password: [
     {
@@ -113,7 +113,7 @@ function handleLogin() {
           router.push({
             path: route.query.redirect ? route.query.redirect : '/'
           })
-          ElMessage.success({ message: i18n.t('Login.index.808362-5') })
+          ElMessage.success({ message: i18n.$t('Login.index.808362-5') })
         })
         .finally(() => {
           isLoading.value = false
