@@ -10,7 +10,7 @@
           :key="route.path"
           @close="onCloseTag(route)"
           @contextmenu.stop.prevent="onContextMenu($event, route)"
-          :type="vueRoute.path === route.path ? '' : 'info'"
+          :type="vueRoute.path === route.path ? 'primary' : 'info'"
         >
           <router-link :to="route.path">{{ route.title }}</router-link>
         </el-tag>
