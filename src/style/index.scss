@@ -1,6 +1,7 @@
 // 覆盖默认样式
 @import '@/assets/scss/reset.scss';
 // 一些css常量,需要在明暗主题之前引入
+@import './theme-css-variables.scss';// 明，暗主题的css变量
 @import './variables-dark.scss';
 @import './variables-light.scss';
 @import './variables.scss';
@@ -11,6 +12,9 @@
 @import './theme-filter-invert-light.scss';
 // 一些通用的移动端样式
 @import './mobile.scss';
+// JSON查看器样式
+@import './vue-json.scss';
+
 
 // 边框盒模型
 * {

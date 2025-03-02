@@ -1,0 +1,95 @@
+// 亮色主题
+html {
+    // 主色调
+    --theme-primary: #409eff; // 主题色，与element-plus默认主色保持一致
+    --theme-primary-light: #79bbff; // 主色调浅色版，用于hover等状态
+    --theme-primary-dark: #337ecc; // 主色调深色版，用于active等状态
+
+    // 功能色
+    --theme-success: #67c23a; // 成功色
+    --theme-warning: #e6a23c; // 警告色
+    --theme-danger: #f56c6c; // 危险色
+    --theme-info: #909399; // 信息色
+
+    // 背景色
+    --theme-bg-base: #ffffff; // 基础背景色
+    --theme-bg-page: #f5f7fa; // 页面背景色
+    --theme-bg-container: #ffffff; // 容器背景色
+    --theme-bg-hover: #f5f7fa; // hover状态背景色
+    --theme-bg-active: #e6e8eb; // active状态背景色
+
+    // 文字颜色
+    --theme-text-primary: #303133; // 主要文字
+    --theme-text-regular: #606266; // 常规文字
+    --theme-text-secondary: #909399; // 次要文字
+    --theme-text-placeholder: #c0c4cc; // 占位文字
+
+    // 边框颜色
+    --theme-border-base: #dcdfe6; // 基础边框色
+    --theme-border-light: #e4e7ed; // 浅色边框
+    --theme-border-lighter: #ebeef5; // 更浅边框
+    --theme-border-extra-light: #f2f6fc; // 特别浅边框
+
+    // 阴影
+    --theme-shadow-base: 0 2px 4px rgba(0, 0, 0, 0.12); // 基础阴影
+    --theme-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1); // 浅色阴影
+    --theme-shadow-dark: 0 2px 16px 0 rgba(0, 0, 0, 0.08); // 深色阴影
+
+    // 特殊功能区域
+    --theme-header-bg: #ffffff; // 头部背景
+    --theme-sidebar-bg: #ffffff; // 侧边栏背景
+    --theme-mask-bg: rgba(0, 0, 0, 0.5); // 遮罩层背景
+
+    // 功能色的扩展
+    --theme-danger-light: #fef0f0; // 危险色浅背景
+    --theme-danger-border: #fde2e2; // 危险色边框
+    --theme-danger-hover: #f78989; // 危险色hover状态
+}
+
+// 暗色主题
+html.theme-dark {
+    // 主色调 - 暗色模式下稍微提高亮度和饱和度以提升可见性
+    --theme-primary: #4098ff; // 主题色略微调亮
+    --theme-primary-light: #6eb7ff; // 主色调浅色版
+    --theme-primary-dark: #2d6bc0; // 主色调深色版
+
+    // 功能色 - 暗色模式下降低亮度以避免刺眼
+    --theme-success: #5cb85c; // 成功色
+    --theme-warning: #d39435; // 警告色
+    --theme-danger: #e45b5b; // 危险色
+    --theme-info: #808287; // 信息色
+
+    // 背景色 - 使用深色但不完全黑以减少视觉疲劳
+    --theme-bg-base: #141414; // 基础背景色
+    --theme-bg-page: #0a0a0a; // 页面背景色
+    --theme-bg-container: #1d1d1d; // 容器背景色
+    --theme-bg-hover: #262626; // hover状态背景色
+    --theme-bg-active: #303030; // active状态背景色
+
+    // 文字颜色 - 降低对比度以保护眼睛
+    --theme-text-primary: #e5e5e5; // 主要文字
+    --theme-text-regular: #cccccc; // 常规文字
+    --theme-text-secondary: #999999; // 次要文字
+    --theme-text-placeholder: #666666; // 占位文字
+
+    // 边框颜色 - 使用深色边框
+    --theme-border-base: #333333; // 基础边框色
+    --theme-border-light: #404040; // 浅色边框
+    --theme-border-lighter: #4d4d4d; // 更浅边框
+    --theme-border-extra-light: #595959; // 特别浅边框
+
+    // 阴影 - 暗色模式下使用亮色阴影
+    --theme-shadow-base: 0 2px 4px rgba(255, 255, 255, 0.08); // 基础阴影
+    --theme-shadow-light: 0 2px 12px 0 rgba(255, 255, 255, 0.06); // 浅色阴影
+    --theme-shadow-dark: 0 2px 16px 0 rgba(255, 255, 255, 0.04); // 深色阴影
+
+    // 特殊功能区域
+    --theme-header-bg: #1a1a1a; // 头部背景
+    --theme-sidebar-bg: #1a1a1a; // 侧边栏背景
+    --theme-mask-bg: rgba(0, 0, 0, 0.7); // 遮罩层背景
+
+    // 功能色的扩展
+    --theme-danger-light: rgba(245, 108, 108, 0.1); // 危险色浅背景
+    --theme-danger-border: rgba(245, 108, 108, 0.2); // 危险色边框
+    --theme-danger-hover: #f56c6c; // 危险色hover状态
+}

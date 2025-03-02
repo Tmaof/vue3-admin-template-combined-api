@@ -325,11 +325,10 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .user-log-container {
-
     .section-title {
         font-size: 16px;
         font-weight: 500;
-        color: #606266;
+        color: var(--theme-text-regular);
         margin: 0 0 16px;
         position: relative;
         padding-left: 12px;
@@ -342,20 +341,22 @@ onMounted(() => {
             transform: translateY(-50%);
             width: 4px;
             height: 16px;
-            background-color: #409eff;
+            background-color: var(--theme-primary);
             border-radius: 2px;
         }
     }
 
     .search-section {
-        background-color: #f5f7fa;
+        background-color: var(--theme-bg-container);
+        border: 1px solid var(--theme-border-light);
         padding: 16px;
         border-radius: 4px;
         margin-bottom: 16px;
     }
 
     .delete-section {
-        background-color: #fef0f0;
+        background-color: var(--theme-danger-light);
+        border: 1px solid var(--theme-danger-border);
         padding: 16px;
         border-radius: 4px;
         margin-bottom: 20px;
@@ -371,6 +372,7 @@ onMounted(() => {
         display: flex;
         align-items: center;
         gap: 8px;
+        color: var(--theme-text-regular);
     }
 
     .pagination {
