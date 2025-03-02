@@ -79,14 +79,19 @@
             </el-table>
 
             <div class="pagination">
-                <el-pagination v-model:current-page="page" v-model:page-size="size" :page-sizes="[10, 20, 30, 50]"
-                    layout="total, sizes, prev, pager, next" :total="total" @size-change="handleSizeChange"
-                    @current-change="handleCurrentChange" />
+                <el-pagination
+                v-model="page"
+                :page-size="size"
+                :page-sizes="pageSizes"
+                layout="total,sizes, prev, pager, next, jumper"
+                :total="total"
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange" />
             </div>
         </el-card>
 
         <!-- 详情对话框 -->
-        <el-dialog v-model="dialogVisible" title="日志详情" width="60%">
+        <el-dialog v-model="dialogVisible" title="日志详情" width="60%" :fullscreen="getters.isMobile">
             <el-descriptions label-align='left' :column="1" border label-width='30'>
                 <el-descriptions-item label="用户信息">
                     <div class="user-info">
@@ -158,11 +163,14 @@ import { getUserListAll } from '@/api/user-manage'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import VueJsonPretty from 'vue-json-pretty'
 import 'vue-json-pretty/lib/styles.css'
+import { useStore } from 'vuex'
+const { getters } = useStore()
 
 const loading = ref(false)
 const logList = ref([])
 const page = ref(1)
-const size = ref(10)
+const size = ref(5)
+const pageSizes = [5, 10, 20, 30, 70, 100]
 const total = ref(0)
 const dialogVisible = ref(false)
 const currentLog = ref({})
@@ -376,9 +384,12 @@ onMounted(() => {
     }
 
     .pagination {
-        margin-top: 20px;
+        margin-top: 10px;
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
+        :deep(.el-pagination) {
+          overflow-x: auto;
+        }
     }
 }
 
@@ -396,7 +407,7 @@ onMounted(() => {
 }
 
 // 自定义 el-select 的宽度
-:deep(.el-select) {
+:deep(.search-section .el-select) {
     width: 240px;
 }
 </style>
