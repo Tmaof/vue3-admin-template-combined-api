@@ -102,7 +102,7 @@ function handleregister() {
       // 发请求
       register(registerForm)
         .then(() => {
-          ElMessage.success({ message: i18n.$t('Register.index.808361-5') })
+          ElMessage.success({ message: i18n.$t('Register.index.808361-5').value })
           router.push('/login')
         })
         .finally(() => {
