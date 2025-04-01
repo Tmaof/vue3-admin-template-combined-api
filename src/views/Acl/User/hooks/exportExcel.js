@@ -13,7 +13,7 @@ export default async function exportExcel() {
     // excel 数据（二维数组结构）
     data,
     // 文件名称
-    filename: i18n.$t('hooks.exportExcel.017834-0'),
+    filename: i18n.$t('hooks.exportExcel.017834-0').value,
     // 是否自动列宽
     autoWidth: true,
     // 文件类型
