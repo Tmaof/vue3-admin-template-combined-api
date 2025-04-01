@@ -98,7 +98,7 @@ async function onAddUser() {
       })
     }
   } else {
-    ElMessage.warning(i18n.$t('AddUserDialog.index.017835-13'))
+    ElMessage.warning(i18n.$t('AddUserDialog.index.017835-13').value)
   }
 }
 function resetExcelUpload() {

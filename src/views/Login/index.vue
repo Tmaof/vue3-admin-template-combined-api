@@ -113,7 +113,7 @@ function handleLogin() {
           router.push({
             path: route.query.redirect ? route.query.redirect : '/'
           })
-          ElMessage.success({ message: i18n.$t('Login.index.808362-5') })
+          ElMessage.success({ message: i18n.$t('Login.index.808362-5').value })
         })
         .finally(() => {
           isLoading.value = false
