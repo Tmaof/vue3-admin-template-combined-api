@@ -34,8 +34,10 @@ const formatJson = (headers, rows) => {
     return Object.keys(headers).map((key) => {
       // 角色特殊处理
       if (headers[key] === 'role') {
-        item.role = item.role.map((role) => role.title)
-        item.role = item.role.toString()
+        if (Array.isArray(item.role)) {
+          item.role = item.role.map((role) => role.title ?? role.name)
+          item.role = item.role.toString()
+        }
       }
       // 处理时间格式
       if (headers[key] === 'openTime') {
