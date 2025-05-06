@@ -1,0 +1,23 @@
+name: 部署项目到服务器
+on: 
+    push:
+        branches:
+            - master # 只在master分支push时才触发部署
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: appleboy/ssh-action
+        with:
+          host: ${{ secrets.MY_SERVER_HOST }} # 要部署的服务器的host
+          username: ${{ secrets.MY_SERVER_USERNAME }}
+          password: ${{ secrets.MY_SERVER_PWD }}
+          script_stop: true
+          script: |
+            cd /home/ubuntu/web_project/vue3
+            rm -rf ./vue3-admin
+            git clone git@github.com:Tmaof/vue3-admin-template-combined-api.git -b master ./vue3-admin
+            cd ./vue3-admin
+            yarn install
+            npm run build
+        #记得 配置nginx 将 http://vue3-admin.webproject.maofu123.top/请求 对应到 资源路径/home/ubuntu/web_project/vue3/vue3-admin/dist
