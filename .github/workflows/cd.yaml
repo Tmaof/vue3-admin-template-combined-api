@@ -1,4 +1,4 @@
-name: 部署项目到服务器
+name: deploy-project
 on: 
     push:
         branches:
