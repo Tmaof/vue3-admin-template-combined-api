@@ -12,7 +12,6 @@ jobs:
           host: ${{ secrets.MY_SERVER_HOST }} # 要部署的服务器的host
           username: ${{ secrets.MY_SERVER_USERNAME }}
           password: ${{ secrets.MY_SERVER_PWD }}
-          script_stop: true
           script: |
             cd /home/ubuntu/web_project/vue3
             rm -rf ./vue3-admin
