@@ -13,10 +13,8 @@ jobs:
           username: ${{ secrets.MY_SERVER_USERNAME }}
           password: ${{ secrets.MY_SERVER_PWD }}
           script: |
-            cd /home/ubuntu/web_project/vue3
-            rm -rf ./vue3-admin
-            git clone git@github.com:Tmaof/vue3-admin-template-combined-api.git -b master ./vue3-admin
-            cd ./vue3-admin
+            cd /home/ubuntu/web_project/vue3/vue3-admin
+            git pull github master
             yarn install
             npm run build
         #记得 配置nginx 将 http://vue3-admin.webproject.maofu123.top/请求 对应到 资源路径/home/ubuntu/web_project/vue3/vue3-admin/dist
